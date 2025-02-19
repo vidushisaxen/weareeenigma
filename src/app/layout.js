@@ -2,8 +2,6 @@
 import '@/styles/globals.css';
 import '@/styles/cursor.css';
 import '@/styles/fonts.css';
-import { ReactLenis } from "lenis/react";
-import { Cursor } from 'react-creative-cursor';
 
 // export const metadata = {
 //   title: "Enigma | Digital Product Design, UI/UX & Neuromarketing Agency",
@@ -48,14 +46,13 @@ export default function RootLayout({ children }) {
   return (
     <>
     
-      {/* <ReactLenis root options={{ lerp: 0.05 }}> */}
         <html lang="en">
           <body>
-            {/* <Cursor isGelly={true} cursorSize={15.0} magneticAnimationDuration={0.5} animationDuration={1.0}/> */}
+           
             {children}
           </body>
         </html>
-      {/* </ReactLenis> */}
+
     </>
   );
 }

@@ -6,7 +6,13 @@ export async function getBlogPosts() {
       title,
       slug,
       publishedAt,
+      author,
+      excerpt,
+       categories[]->{
+        title
+      },
       body,
+      featured,
       mainImage{
         asset->{
           _id,

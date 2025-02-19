@@ -42,6 +42,7 @@ export function TitleAnim() {
                     scrollTrigger: {
                         trigger: el,
                         start: "top 85%",
+                     markers:true
                     },
                     opacity: 0,
                     yPercent: 100,
