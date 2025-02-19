@@ -48,14 +48,14 @@ export default function RootLayout({ children }) {
   return (
     <>
     
-      <ReactLenis root options={{ lerp: 0.05 }}>
+      {/* <ReactLenis root options={{ lerp: 0.05 }}> */}
         <html lang="en">
           <body>
-            <Cursor isGelly={true} cursorSize={15.0} magneticAnimationDuration={0.5} animationDuration={1.0}/>
+            {/* <Cursor isGelly={true} cursorSize={15.0} magneticAnimationDuration={0.5} animationDuration={1.0}/> */}
             {children}
           </body>
         </html>
-      </ReactLenis>
+      {/* </ReactLenis> */}
     </>
   );
 }

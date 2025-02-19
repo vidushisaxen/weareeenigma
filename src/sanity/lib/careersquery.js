@@ -14,7 +14,7 @@ export async function getCareers() {
         jobTitle,
         slug,
         smallDescription,
-        features,
+        features[],
         tag,
         categories[]->{
           title

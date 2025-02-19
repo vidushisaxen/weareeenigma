@@ -37,10 +37,10 @@ const Header = () => {
     const router = useRouter();
     const pathname = usePathname();
 
-    useEffect(() => {
-        lenis.start();
-        lenis.scrollTo(0, { immediate: true });
-    }, [pathname]);
+    // useEffect(() => {
+    //     lenis.start();
+    //     lenis.scrollTo(0, { immediate: true });
+    // }, [pathname]);
 
     // useEffect(() => {
     //     const handleRouteChange = () => {
