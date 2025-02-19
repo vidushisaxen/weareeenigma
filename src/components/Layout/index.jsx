@@ -11,9 +11,7 @@ const Layout = ({ children }) => {
                 {children}
             </main>
             <Footer />
-            <Media greaterThan="tablet">
-                {/* <Cursor /> */}
-            </Media>
+            
         </>
     )
 }
