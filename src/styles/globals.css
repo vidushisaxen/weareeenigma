@@ -33,3 +33,163 @@ body {
   /* cursor: none; */
   transition: all 0.5s;
 }
+.heading{
+  font-family: var(--heading);
+  text-rendering: geometricPrecision;
+}
+/* Link Animation */
+.en-main-link {
+  display: inline-block;
+  position: relative;
+  line-height: normal;
+  overflow: hidden;
+}
+
+.en-main-link span {
+  display: inline-block;
+  transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.en-main-link span:after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 105%;
+  color: currentColor;
+}
+
+.en-main-link:hover span {
+  transform: translateY(-105%) !important;
+}
+
+.en-link-under span {
+  position: relative;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.en-link-under span:after {
+  content: "";
+  background: currentColor;
+  position: absolute;
+  bottom: -20%;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  transform: scaleX(1);
+  transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.en-link-under:hover span:after {
+  transform: scaleX(0);
+}
+
+/*Homepage Hero Section */
+.agency {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: var(--gray);
+  -webkit-text-stroke-width: 1.5px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+/* Homepage Services Title */
+.service-title {
+  background-image: linear-gradient(
+    to right,
+    var(--primary) 50%,
+    var(--black2) 50%
+  );
+  background-size: 200% 100%;
+  background-position: 100%;
+  position: relative;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 300ms ease-out;
+}
+
+.service-container:hover .service-title {
+  background-position: 0;
+}
+
+.service-container[data-state="open"] .service-title {
+  background-position: 0;
+}
+
+.service-container[data-state="open"] .service-arrow {
+  transform: rotate(90deg);
+}
+.service-container[data-state="open"] .service-arrow span:last-child {
+  opacity: 0;
+}
+
+/* About Page CSS Start*/
+.stroke {
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: currentColor;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-fill .line {
+  background: linear-gradient(90deg, var(--black1) 50%, var(--white2) 0);
+  background-size: 200% 100%;
+  background-position-x: 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+/* About Page CSS END */
+
+/* Portfolio Page CSS Start */
+.portfolio-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 8s linear infinite;
+  animation-delay: 6.5s;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-179.07%);
+  }
+}
+/* Portfolio Page CSS END */
+
+/* Careers Page */
+.job-Closed {
+  background-color: #ff4747;
+}
+.job-Hot {
+  background-color: #ff7d19;
+}
+.job-New {
+  background-color: #ff8be6;
+}
+.job-Urgent {
+  background-color: #218cff;
+}
+
+/* Dark Mode Css */
+:root .dark {
+  --primary: #5d5ad6;
+  --white: #000000;
+  --black: #ffffff;
+  --white1: #060606;
+  --white2: #111111;
+  --white3: #292929;
+  --black1: #e5e5e5;
+  --black2: #c7c7c7;
+  --black3: #efefef;
+  --black4: #e0e0e0;
+  --gray: #5d5d5d;
+  --gray1: #737373;
+  --gray2: #9a9a9a;
+}
+/* Tablet Responsive CSS END */
+
+.kerning-none {
+  font-kerning: none;
+}

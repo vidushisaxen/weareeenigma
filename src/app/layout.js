@@ -48,7 +48,6 @@ export default function RootLayout({ children }) {
       <ReactLenis root options={{ lerp: 0.05 }}>
         <html lang="en">
           <body>
-            {/* <Cursor isGelly={true} /> */}
             {children}
           </body>
         </html>
