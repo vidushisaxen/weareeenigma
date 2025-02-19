@@ -11,14 +11,17 @@
   },
   "dependencies": {
     "@artsy/fresnel": "^8.1.0",
+    "@hookform/resolvers": "^4.1.0",
     "@radix-ui/themes": "^3.2.0",
     "@sanity/icons": "^3.6.0",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.76.1",
     "autoprefixer": "^10.4.20",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "gsap": "^3.12.7",
     "lenis": "^1.1.20",
+    "lucide-react": "^0.475.0",
     "motion": "^12.4.4",
     "next": "15.1.7",
     "next-sanity": "^9.8.59",
@@ -26,12 +29,14 @@
     "react": "^19.0.0",
     "react-creative-cursor": "^1.2.7",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.2",
     "sanity": "^3.76.1",
     "split-type": "^0.3.4",
     "styled-components": "^6.1.15",
     "swiper": "^11.2.4",
     "tailwind-merge": "^3.0.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

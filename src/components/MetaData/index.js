@@ -1,22 +1,22 @@
-"use client"
 import { NextSeo } from "next-seo";
+import config from '../../../package.json';
 
 export default function MetaData({ metadata }) {
 
+    const { homepage = '' } = config;
     const { title, description, img, slug } = metadata;
-    // const homepage = 'https://weareenigma.com';
 
     return (
         <NextSeo
             title={title}
             description={description}
             openGraph={{
-                url: `https://weareenigma.com/${slug}`,
+                url: `${homepage}/${slug}`,
                 title: `${title}`,
                 description: `${description}`,
                 images: [
                     {
-                        url: `https://weareenigma.com/assets/seo/${img}`,
+                        url: `${homepage}/assets/seo/${img}`,
                         width: 1200,
                         height: 630,
                         alt: "Page Og Image",
@@ -35,13 +35,13 @@ export default function MetaData({ metadata }) {
                 },
                 {
                     name: "twitter:image",
-                    content: `https://weareenigma.com/assets/seo/${img}`
+                    content: `${homepage}/assets/seo/${img}`
                 },
             ]}
-            canonical={`https://weareenigma.com/${slug}`}
+            canonical={`${homepage}/${slug}`}
             languageAlternates={[{
                 hrefLang: 'en-US',
-                href: `https://weareenigma.com/${slug}`,
+                href: `${homepage}/${slug}`,
             }]}
         />
     )

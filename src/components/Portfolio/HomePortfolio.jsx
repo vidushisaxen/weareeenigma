@@ -69,11 +69,11 @@ const HomePortfolio = () => {
                     </div>
                 </Media>
 
-                {/* <Media lessThan="desktop">
+                <Media lessThan="desktop">
                     <div className="pt-[10%] pb-[8vw]">
                         <MobilePortfolio projectData={mobileProject}/>
                     </div>
-                </Media> */}
+                </Media>
 
                 <div className="flex justify-center w-full">
                     <Link data-cursor-exclusion data-cursor-size="80px" href="/our-portfolio" className="block w-fit h-fit group">

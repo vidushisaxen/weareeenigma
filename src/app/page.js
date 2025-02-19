@@ -5,16 +5,15 @@ import TopAero from "@/components/Homepage/TopAero";
 import Layout from "@/components/Layout";
 import RecentBlogs from "@/components/Blogs/RecentBlogs";
 import HomeAero from "@/components/Homepage/HomeAero";
-import { Media } from "@/lib/media";
+import { Media} from "@/lib/media";
 import AboutMobile from "@/components/Homepage/AboutMobile";
 import AboutDesktop from "@/components/Homepage/AboutDesktop";
 import CtaMobile from "@/components/Homepage/CtaMobile";
 import Loader2 from "@/components/Loader2";
 import HomePortfolio from "@/components/Portfolio/HomePortfolio";
 import { fadeUp } from "@/lib/gsapAnimations";
-import { NextSeo } from "next-seo";
+import Metadata from "@/components/MetaData";
 // import { LocalBusiness, WebpageJsonLd } from "@/lib/json-ld";
-// import MetaData from "@/components/MetaData";
 
 export default function Homepage() {
   fadeUp();
@@ -31,55 +30,18 @@ export default function Homepage() {
   return (
     <>
       {/* <LocalBusiness /> */}
-      {/* <NextSeo
-                  title={metadata.title}
-                  description={metadata.description}
-                  openGraph={{
-                      url: `https://weareenigma.com/${slug}`,
-                      title: `${title}`,
-                      description: `${description}`,
-                      images: [
-                          {
-                              url: `https://weareenigma.com/assets/seo/${img}`,
-                              width: 1200,
-                              height: 630,
-                              alt: "Page Og Image",
-                              type: "image/png",
-                          },
-                      ],
-                  }}
-                  additionalMetaTags={[
-                      {
-                          name: "twitter:title",
-                          content: `${title}`
-                      },
-                      {
-                          name: "twitter:description",
-                          content: `${description}`
-                      },
-                      {
-                          name: "twitter:image",
-                          content: `https://weareenigma.com/assets/seo/${img}`
-                      },
-                  ]}
-                  canonical={`https://weareenigma.com/${slug}`}
-                  languageAlternates={[{
-                      hrefLang: 'en-US',
-                      href: `https://weareenigma.com/${slug}`,
-                  }]}
-              /> */}
-      <Layout>
-      {/* <WebpageJsonLd metadata={metadata} /> */}
+       {/* <WebpageJsonLd metadata={metadata} /> */}
       {/* <MetaData metadata={metadata} /> */}
+      <Layout>
       <Loader2 />
         <Hero />
         <Media greaterThan="tablet">
           <AboutDesktop />
         </Media>
-        {/* <Media lessThan="desktop">
+        <Media lessThan="desktop">
           <AboutMobile />
           <CtaMobile />
-        </Media> */}
+        </Media>
         <TopAero text="we make cool things that do great business" />
         <Services />
         <HomePortfolio />

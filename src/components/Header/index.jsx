@@ -5,11 +5,11 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useLenisFunctions } from "@/lib/utils";
 import Menu from "./Menu";
-// import { useRouter } from "next/compat/router";
 import { useLenis } from "lenis/react";
 import gsap from "gsap";
 import Showreel from "./Showreel";
- 
+import { useRouter, usePathname } from "next/navigation";
+
 const Header = () => {
 
     useEffect(() => {
@@ -31,10 +31,16 @@ const Header = () => {
     const [disabled, setDisabled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isShowreel, setIsShowreel] = useState(false);
-
-    // const router = useRouter();
-
     const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+
+
+    const router = useRouter();
+    const pathname = usePathname();
+
+    useEffect(() => {
+        lenis.start();
+        lenis.scrollTo(0, { immediate: true });
+    }, [pathname]);
 
     // useEffect(() => {
     //     const handleRouteChange = () => {

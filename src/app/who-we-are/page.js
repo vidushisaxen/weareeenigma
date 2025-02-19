@@ -15,7 +15,6 @@ import { fadeUp, ParaAnim, TitleAnim} from "@/lib/gsapAnimations"
 import { Media } from "@/lib/media";
 
 export default function aboutPage() {
-
     TitleAnim();
     ParaAnim();
     fadeUp();

@@ -1,0 +1,80 @@
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    background: linear-gradient(45deg, rgb(222 208 224) 0%, rgba(0,0,0,1) 100%);
+}
+
+.bg{
+    background: linear-gradient(45deg, rgb(222 208 224) 0%, rgba(0,0,0,1) 100%);
+}
+
+.gifBox{
+    position: absolute;
+    top: 3vw;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fourZeroFour{
+    font-size: 20vw;
+    background-image: url('/assets/404/404.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0% 37%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    color: #1a1a1a;
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+    white-space: normal;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+    margin-top: 5vw;
+}
+
+.paraText{
+    font-family: "Ageo";
+    font-size: 1.6vw;
+    font-weight: 500;
+    padding: 0 30vw;
+    text-align: center;
+}
+
+@media screen and (max-width:991px) {
+    .fourZeroFour{
+        font-size: 40vw;
+        margin-top: 10vw;
+    }
+    .paraText{
+        padding: 0 50px;
+        font-size: 4.5vw;
+    }
+    .gifBox{
+        top: 10vw
+    }
+}
+
+@media screen and (max-width:480px) {
+    .fourZeroFour{
+        margin-top: 30vw;
+    }
+    .paraText{
+        padding: 0 20px;
+        font-size: 5vw;
+    }
+}
