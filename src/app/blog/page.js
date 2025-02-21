@@ -5,7 +5,6 @@ import Layout from "@/components/Layout";
 import PageLoader from "@/components/PageLoader";
 import { getCategories } from "@/sanity/lib/categoryQuery";
 import { getBlogPosts } from "@/sanity/lib/queries";
-// import BlogAnimations from "./BlogAnimations"; // ✅ New Client Component for animations
 
 // ✅ Fetch data on the server before rendering
 async function fetchData() {
@@ -16,6 +15,48 @@ async function fetchData() {
   const nonFeaturedBlogs = blogs.filter((blog) => blog.featured !== true);
 
   return { featuredBlog, nonFeaturedBlogs, categories };
+}
+
+// ✅ Generate Metadata for Blog Listing Page
+export async function generateMetadata() {
+  const blogs = await getBlogPosts();
+  
+  const siteUrl = "https://weareenigma.com/blog";
+  
+  return {
+    title: "The Enigma Blog | Discover, Learn & Be Future Ready",
+    description: "Dive into our curated collection of articles on UI/UX Design, Digital Marketing, Technology & Human Psychology. Stay updated with the latest trends.",
+    canonical: siteUrl,
+    openGraph: {
+      title: "The Enigma Blog | Discover, Learn & Be Future Ready",
+      description: "Dive into our curated collection of articles on UI/UX Design, Digital Marketing, Technology & Human Psychology. Stay updated with the latest trends.",
+      url: siteUrl,
+      type: "website",
+      images: blogs.length > 0
+        ? [{ 
+            url: "/assets/seo/blog.png",
+            width: 1200,
+            height: 630,
+            alt: "The Enigma Blog | Discover, Learn & Be Future Ready",
+          }]
+        : [{ url: "/assets/seo/blog.png", width: 1200, height: 630, alt: "The Enigma Blog | Discover, Learn & Be Future Ready" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "The Enigma Blog | Discover, Learn & Be Future Ready",
+      description: "Dive into our curated collection of articles on UI/UX Design, Digital Marketing, Technology & Human Psychology. Stay updated with the latest trends.",
+      images: blogs.length > 0
+        ? [blogs[0].metaImage?.asset?.url || blogs[0].mainImage?.asset?.url || "/default-image.jpg"]
+        : ["/default-image.jpg"],
+    },
+    alternates: {
+      canonical: siteUrl,
+      languages: {
+        hrefLang: 'en-US',
+        href: siteUrl,
+      },
+    },
+  };
 }
 
 // ✅ Convert the component to a Server Component
@@ -51,10 +92,7 @@ export default async function Blog() {
         </div>
       </Layout>
 
-      {/* ✅ GSAP Animations in a separate Client Component */}
-      {/* <BlogAnimations /> */}
-
-      {/* ✅ Page Loader (Client Component) */}
+      {/* ✅ Page Loader */}
       <PageLoader loaderText={"Our Thoughts & Resources"} />
     </>
   );
