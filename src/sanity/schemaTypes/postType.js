@@ -38,6 +38,32 @@ export const postType = defineType({
         }),
       ],
     }),
+
+    // ✅ New Meta Image Field
+    defineField({
+      name: 'metaImage',
+      type: 'image',
+      title: 'Meta Image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        defineField({
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative text',
+          description: 'Short description of the image for SEO and accessibility',
+        }),
+      ],
+    }),
+
+    defineField({
+      name: 'metaDescription',
+      type: 'string',
+      title: 'Meta Description',
+      description: 'SEO-friendly description for search engines and social media previews',
+    }),
+
     defineField({
       name: 'loaderText',
       type: 'string',

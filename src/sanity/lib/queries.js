@@ -20,6 +20,8 @@ export async function getBlogPosts() {
         title
       },
       body,
+      metaDescription,
+      metaImage,
       featured,
       mainImage{
         asset->{
