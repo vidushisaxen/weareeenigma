@@ -57,7 +57,7 @@ export async function generateMetadata() {
       },
     },
   };
-}
+} 
 
 // ✅ Convert the component to a Server Component
 export default async function Blog() {
