@@ -12,7 +12,7 @@ import Process from "@/components/ServiceDetail/Strategy/Process";
 import OfferCards from "@/components/ServiceDetail/Strategy/OfferCards";
 import Blogs from "@/components/ServiceDetail/Blogs";
 import { fadeUp, ParaAnim, TitleAnim } from "@/lib/gsapAnimations";
-// import { WebpageJsonLd } from "@/lib/json-ld";
+import { WebpageJsonLd } from "@/lib/json-ld";
 // import MetaData from "@/components/MetaData";
 
 export default function ServiceDetail() {
@@ -32,7 +32,7 @@ export default function ServiceDetail() {
 
     return (
         <>      
-            {/* <WebpageJsonLd metadata={metadata} /> */}
+            <WebpageJsonLd metadata={metadata} />
             {/* <MetaData metadata={metadata} /> */}
             <Layout>
                 <Hero />

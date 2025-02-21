@@ -9,16 +9,6 @@ export default defineType({
   fields: [
     defineField({ name: 'title', title: 'Page Title', type: 'string' }),
     defineField({ name: 'slug', title: 'Slug', type: 'slug', options: { source: 'title', maxLength: 96 } }),
-    defineField({ name: 'para', title: 'Para', type: 'text' }),
-    defineField({
-      name: 'openingsContent',
-      title: 'Openings Content',
-      type: 'object',
-      fields: [
-        defineField({ name: 'heading', title: 'Heading', type: 'string' }),
-        defineField({ name: 'description', title: 'Description', type: 'string' }),
-      ],
-    }),
     defineField({
       name: 'jobOpenings',
       title: 'Job Openings',
@@ -28,7 +18,11 @@ export default defineType({
           type: 'object',
           fields: [
             defineField({ name: 'profileImage', title: 'Profile Image', type: 'image', options: { hotspot: true } }),
+            defineField({ name: 'mainImage', title: 'Main Image', type: 'image', options: { hotspot: true } }),
             defineField({ name: 'jobTitle', title: 'Job Title', type: 'string' }),
+            defineField({ name: 'experience', title: 'Experience', type: 'string' }),
+            defineField({ name: 'salary', title: 'Salary', type: 'string' }),
+            defineField({ name: 'location', title: 'Location', type: 'string' }),
             defineField({ name: 'slug', title: 'Job Slug', type: 'slug', options: { source: 'jobTitle', maxLength: 96 } }),
             defineField({ name: 'smallDescription', title: 'Short Description', type: 'string' }),
             defineField({ name: 'features', title: 'Features', type: 'array', of: [{ type: 'string' }] }),

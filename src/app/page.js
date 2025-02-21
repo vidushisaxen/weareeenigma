@@ -12,26 +12,28 @@ import CtaMobile from "@/components/Homepage/CtaMobile";
 import Loader2 from "@/components/Loader2";
 import HomePortfolio from "@/components/Portfolio/HomePortfolio";
 import { fadeUp } from "@/lib/gsapAnimations";
-import Metadata from "@/components/MetaData";
-// import { LocalBusiness, WebpageJsonLd } from "@/lib/json-ld";
+import { LocalBusiness, WebpageJsonLd } from "@/lib/json-ld";
+
+
+const metadata = {
+  title: "Enigma | Digital Product Design, UI/UX & Neuromarketing Agency",
+  description: "Enigma is India's Leading UI/UX Design Agency that Leverages the Power of Emotion, Design, Technology, and Neuromarketing Strategies to Create Digital Products that People Love to Use.",
+  img: "index.png",
+  slug: "",
+  date_published: "2020-10-22T00:00",
+  date_modified: "2024-12-25T00:00",
+}
 
 export default function Homepage() {
-  fadeUp();
 
-  const metadata = {
-    title: "Enigma | Digital Product Design, UI/UX & Neuromarketing Agency",
-    description: "Enigma is India's Leading UI/UX Design Agency that Leverages the Power of Emotion, Design, Technology, and Neuromarketing Strategies to Create Digital Products that People Love to Use.",
-    img: "index.png",
-    slug: "",
-    date_published: "2020-10-22T00:00",
-    date_modified: "2024-12-25T00:00",
-  }
+  fadeUp();
 
   return (
     <>
-      {/* <LocalBusiness /> */}
-       {/* <WebpageJsonLd metadata={metadata} /> */}
-      {/* <MetaData metadata={metadata} /> */}
+
+      <LocalBusiness />
+       <WebpageJsonLd metadata={metadata} />
+     
       <Layout>
       <Loader2 />
         <Hero />

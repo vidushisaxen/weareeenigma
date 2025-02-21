@@ -7,7 +7,7 @@ import ServiceMarquee from "@/components/Layout/ServiceMarquee";
 // import MetaData from "@/components/MetaData";
 import PageLoader from "@/components/PageLoader";
 import { fadeUp, TitleAnim } from "@/lib/gsapAnimations";
-// import { WebpageJsonLd } from "@/lib/json-ld";
+import { WebpageJsonLd } from "@/lib/json-ld";
 
 export default function ContactPage() {
 
@@ -25,7 +25,7 @@ export default function ContactPage() {
 
     return (
         <>
-            {/* <WebpageJsonLd metadata={metadata} /> */}
+            <WebpageJsonLd metadata={metadata} />
             {/* <MetaData metadata={metadata} /> */}
             <Layout>
                 <Hero />

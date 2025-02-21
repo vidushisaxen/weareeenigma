@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import styles from "@/styles/404.module.css";
 // import MetaData from "@/components/MetaData";
-// import { Cursor } from "@/components/Cursor";
+import { Cursor } from "@/components/Cursor";
+import { WebpageJsonLd } from "@/lib/json-ld";
 
 export default function NotFound() {
 
@@ -14,8 +15,9 @@ export default function NotFound() {
 
     return (
         <>
+        <WebpageJsonLd metadata={metadata}/>
             {/* <MetaData metadata={metadata} /> */}
-            {/* <Cursor /> */}
+            <Cursor />
             <section>
                 <div className={styles.container}>
                     <div className={styles.gifBox}>

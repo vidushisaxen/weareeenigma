@@ -12,6 +12,7 @@ import NextPage from "@/components/Layout/NextPage";
 
 import PageLoader from "@/components/PageLoader";
 import { fadeUp, ParaAnim, TitleAnim} from "@/lib/gsapAnimations"
+import { WebpageJsonLd } from "@/lib/json-ld";
 import { Media } from "@/lib/media";
 
 export default function aboutPage() {
@@ -30,8 +31,8 @@ export default function aboutPage() {
 
     return (
         <>
-            {/* <WebpageJsonLd metadata={metadata} />
-            <MetaData metadata={metadata} /> */}
+             <WebpageJsonLd metadata={metadata} />
+            {/*<MetaData metadata={metadata} /> */}
             <Layout>
                 <Hero />
                 <AboutAero text="Enigma is a collective of Creators, Discoverers, Dreamers & Doers!" />

@@ -13,7 +13,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import ProjectSlider from "@/components/PortfolioDetail/ProjectSlider";
-// import { WebpageJsonLd } from "@/lib/json-ld";
+import { WebpageJsonLd } from "@/lib/json-ld";
 // import MetaData from "@/components/MetaData";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -66,7 +66,7 @@ export default function PortfolioDetail() {
 
     return (
         <>
-            {/* <WebpageJsonLd metadata={metadata} /> */}
+            <WebpageJsonLd metadata={metadata} />
             {/* <MetaData metadata={metadata} /> */}
             <Layout>
                 <Hero cursorColor="#FF8395" title="Dharan - Fashionable Ecommerce Website" linkText="dharanclothing.com" link="https://www.dharanclothing.com/" industry="E-COMMERCE" year="2020" />

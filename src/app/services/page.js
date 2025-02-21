@@ -10,7 +10,7 @@ import Process from "@/components/Services/Process";
 import ServiceListing from "@/components/Services/ServiceListing";
 import VideoSection from "@/components/Services/VideoSection";
 import { fadeUp, ParaAnim, TitleAnim } from "@/lib/gsapAnimations";
-// import { WebpageJsonLd } from "@/lib/json-ld";
+import { WebpageJsonLd } from "@/lib/json-ld";
 import { Media } from "@/lib/media";
 
 export default function Services() {
@@ -30,7 +30,7 @@ export default function Services() {
 
     return (
         <>
-            {/* <WebpageJsonLd metadata={metadata} /> */}
+            <WebpageJsonLd metadata={metadata} />
             {/* <MetaData metadata={metadata} /> */}
             <Layout>
                 <Hero />

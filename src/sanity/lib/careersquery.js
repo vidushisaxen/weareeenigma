@@ -4,11 +4,6 @@ export async function getCareers() {
   const query = `*[_type == "careers"][0]{
       title,
       slug,
-      para,
-      openingsContent {
-        heading,
-        description
-      },
       jobOpenings[] {
         "profileImage": profileImage.asset->url,
         jobTitle,
@@ -26,16 +21,27 @@ export async function getCareers() {
   return careers;
 }
 
-// lib/careersQuery.js
 export async function careersQuery(slug) {
   const query = `
-    *[_type == "careers"][0].jobOpenings[slug.current == $slug][0]{
-      "profileImage": profileImage.asset->url,
-      jobTitle,
-       body,     
-}
+    *[_type == "careers"][0]{
+      jobOpenings[slug.current == $slug][0]{
+        "profileImage": profileImage.asset->url,
+        "mainImage": mainImage.asset->url,
+        jobTitle,
+        experience,
+        salary,
+        tag,
+        location,
+        smallDescription,
+        body,
+        categories[]->{
+          title
+        }
+      }
+    }
   `;
-  const job = await client.fetch(query, { slug });
-  return job;
+  const data = await client.fetch(query, { slug });
+  return data?.jobOpenings || null; 
 }
+
 

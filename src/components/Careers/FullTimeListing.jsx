@@ -1,7 +1,7 @@
 import JobCard from "./JobCard";
 
 const FullTimeListing = ({ jobs }) => {
-
+//   console.log(jobs)
     return (
         <>
             <section id="job-listing">
@@ -14,7 +14,7 @@ const FullTimeListing = ({ jobs }) => {
                     </div>
 
                     <div className="mt-20 grid grid-cols-3 gap-[2.5%] tablet:grid-cols-2 tablet:gap-8 mobile:grid-cols-1">
-                        {jobs?.jobOpenings?.map((job, index) => (
+                        {jobs?.map((job, index) => (
                             <JobCard
                                 key={index}
                                 benefits={job.features}

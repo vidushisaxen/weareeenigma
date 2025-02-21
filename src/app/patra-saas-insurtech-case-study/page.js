@@ -14,7 +14,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import ProjectSlider from "@/components/PortfolioDetail/ProjectSlider";
 // import MetaData from "@/components/MetaData";
-// import { WebpageJsonLd } from "@/lib/json-ld";
+import { WebpageJsonLd } from "@/lib/json-ld";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -66,7 +66,7 @@ export default function PortfolioDetail() {
 
     return (
         <>
-            {/* <WebpageJsonLd metadata={metadata} /> */}
+            <WebpageJsonLd metadata={metadata} />
             {/* <MetaData metadata={metadata} /> */}
             <Layout>
                 <Hero cursorColor="#436AD6" title="Client Reporting Dashboard for BPO Services" linkText="patracorp.com" link="https://www.patracorp.com/" industry="SAAS" year="2022" />

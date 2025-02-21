@@ -11,7 +11,7 @@ import VideoSection from "@/components/PortfolioDetail/VideoSection";
 import Image from "next/image";
 import ProjectSlider from "@/components/PortfolioDetail/ProjectSlider";
 // import MetaData from "@/components/MetaData";
-// import { WebpageJsonLd } from "@/lib/json-ld";
+import { WebpageJsonLd } from "@/lib/json-ld";
 
 export default function PortfolioDetail() {
 
@@ -26,7 +26,7 @@ export default function PortfolioDetail() {
 
     return (
         <>
-            {/* <WebpageJsonLd metadata={metadata} /> */}
+            <WebpageJsonLd metadata={metadata} />
             {/* <MetaData metadata={metadata} /> */}
             <Layout>
                 <Hero cursorColor="#000" title="Kedarkala, a Luxury Interior Design Studio" linkText="kedarkala.com" link="https://phpstack-156292-2479564.cloudwaysapps.com/" industry="INTERIOR DESIGN" year="2022" />

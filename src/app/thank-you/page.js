@@ -1,6 +1,6 @@
 "use client"
 /* eslint-disable @next/next/no-html-link-for-pages */
-// import { Cursor } from "@/components/Cursor";
+import { Cursor } from "@/components/Cursor";
 // import MetaData from "@/components/MetaData";
 import { fadeUp } from "@/lib/gsapAnimations";
 import React, { useEffect, useState } from "react";
@@ -36,7 +36,7 @@ export default function ThankYou() {
   return (
     <>
       {/* <MetaData metadata={metadata} /> */}
-      {/* <Cursor /> */}
+      <Cursor />
       <section id="thankyou-page">
         <div className="h-screen w-screen flex justify-center items-center flex-col text-center">
 

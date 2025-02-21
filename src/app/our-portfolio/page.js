@@ -8,7 +8,7 @@ import Hero from "@/components/Portfolio/Hero";
 import PortfolioAero from "@/components/Portfolio/PortfolioAero";
 import WorksPortfolio from "@/components/Portfolio/WorksPortfolio";
 import { fadeUp } from "@/lib/gsapAnimations";
-// import { WebpageJsonLd } from "@/lib/json-ld";
+import { WebpageJsonLd } from "@/lib/json-ld";
 import { Media } from "@/lib/media";
 
 export default function PortfolioPage() {
@@ -26,7 +26,7 @@ export default function PortfolioPage() {
 
     return (
         <>
-            {/* <WebpageJsonLd metadata={metadata} /> */}
+            <WebpageJsonLd metadata={metadata} />
             {/* <MetaData metadata={metadata} /> */}
             <Layout>
                 <Hero />
