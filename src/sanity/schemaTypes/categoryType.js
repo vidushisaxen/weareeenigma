@@ -18,6 +18,5 @@ export const categoryType = defineType({
         source: 'title',
       },
     }),
-
   ],
 })

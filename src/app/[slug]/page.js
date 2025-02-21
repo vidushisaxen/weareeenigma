@@ -50,18 +50,18 @@ export default function BlogPost({ params }) {
     getPost();
   }, [resolvedParams.slug, router]);
 
-  if (loading) {
-    return <p className="text-center">Loading...</p>;
-  }
+
+  console.log(post?.author[0]);
 
   if (error || !post) {
     return (
-      <p className="text-center text-red-500">
-        Post not found or an error occurred.
-      </p>
+      <>
+      <div className="w-screen h-screen bg-black">
+
+      </div>
+      </>
     );
   }
-  console.log(post);
 
   const formattedDate = formatDate(post.publishedAt);
 
@@ -86,7 +86,7 @@ export default function BlogPost({ params }) {
                   className="rounded-full"
                 />
                 <p className="text-[1.3vw] font-medium uppercase font-heading">
-                  {post.author}
+                  {/* {post.author} */}
                 </p>
               </div>
               <p className="uppercase text-[1.25vw] text-gray1 font-heading font-medium mt-[1vw]">
@@ -151,7 +151,7 @@ export default function BlogPost({ params }) {
           </div>
         </article>
       </Layout>
-      <PageLoader loaderText={post.title} />
+      <PageLoader loaderText={post.loaderText} />
     </>
   );
 }

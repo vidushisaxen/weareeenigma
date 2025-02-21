@@ -18,9 +18,11 @@ export const postType = defineType({
         source: 'title',
       },
     }),
+    // ✅ Reference authorType instead of using a string
     defineField({
       name: 'author',
-      type: 'string',
+      type: 'array',
+      of: [defineArrayMember({ type: 'reference', to: { type: 'author' } })],
     }),
     defineField({
       name: 'mainImage',
@@ -37,13 +39,17 @@ export const postType = defineType({
       ],
     }),
     defineField({
+      name: 'loaderText',
+      type: 'string',
+    }),
+    defineField({
       name: 'featured',
       type: 'boolean',
     }),
     defineField({
       name: 'excerpt',
       type: 'string',
-      hidden: ({ parent }) => !parent?.featured, // 👈 Conditional field visibility
+      hidden: ({ parent }) => !parent?.featured, // Conditional field visibility
     }),
     defineField({
       name: 'categories',
@@ -62,12 +68,12 @@ export const postType = defineType({
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
+      author: 'author.name', // ✅ Fetch author's name from the reference
       media: 'mainImage',
     },
     prepare(selection) {
       const { author } = selection;
-      return { ...selection, subtitle: author && `by ${author}` };
+      return { ...selection, subtitle: author ? `by ${author}` : "No author" };
     },
   },
 });

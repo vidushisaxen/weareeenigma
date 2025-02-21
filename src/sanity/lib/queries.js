@@ -1,4 +1,4 @@
-import { client } from "./client"
+import { client } from "./client";
 
 export async function getBlogPosts() {
     const query = `*[_type == "post"]{
@@ -6,9 +6,17 @@ export async function getBlogPosts() {
       title,
       slug,
       publishedAt,
-      author,
+      author[]->{
+        name, // ✅ Fetch each author's name
+        // image{
+        //   asset->{
+        //     url // ✅ Fetch each author's image URL
+        //   }
+        // }
+      },
       excerpt,
-       categories[]->{
+      loaderText,
+      categories[]->{
         title
       },
       body,
@@ -19,9 +27,8 @@ export async function getBlogPosts() {
           url
         }
       }
-    } | order(publishedAt desc)`
-  
-    const posts = await client.fetch(query)
-    return posts
-  }
-  
+    } | order(publishedAt desc)`;
+
+    const posts = await client.fetch(query);
+    return posts;
+}

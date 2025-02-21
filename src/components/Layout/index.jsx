@@ -8,7 +8,7 @@ import { Cursor } from "react-creative-cursor";
 const Layout = ({ children }) => {
     return (
         <>
-         <Cursor isGelly={true} cursorSize={15.0} magneticAnimationDuration={0.5} animationDuration={1.0}/>
+         {/* <Cursor isGelly={true} cursorSize={15.0} magneticAnimationDuration={0.5} animationDuration={1.0}/> */}
         <ReactLenis root option={{lerp:0.5}}>
 
 
