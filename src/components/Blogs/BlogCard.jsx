@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const BlogCard = ({ href, imgSrc, title, category }) => {
     return (
-        <Link data-cursor-size="100px" data-cursor-text="Read More" className="fadeup" href={`/blog/${href}`}>
+        <Link data-cursor-size="100px" data-cursor-text="Read More" className="fadeup" href={`/${href}`}>
             <div className="h-full block w-full relative group">
                 <div className="relative h-[60vh] w-full overflow-hidden tablet:h-[55vw] mobile:h-[100vw]">
                     <Image
