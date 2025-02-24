@@ -1,8 +1,11 @@
+"use client"
 // import { postPathBySlug } from "@/lib/posts";
+import { fadeUp } from "@/lib/gsapAnimations";
 import Image from "next/image";
 import Link from "next/link";
 
 const BlogCard = ({ href, imgSrc, title, category }) => {
+  fadeUp();
   return (
     <Link
       data-cursor-size="100px"

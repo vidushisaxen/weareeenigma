@@ -1,4 +1,3 @@
-"use client"
 import Layout from "@/components/Layout";
 import NextPage from "@/components/Layout/NextPage";
 import PageLoader from "@/components/PageLoader";
@@ -10,17 +9,56 @@ import Process from "@/components/ServiceDetail/Marketing/Process";
 import OfferCards from "@/components/ServiceDetail/Marketing/OfferCards";
 import Blogs from "@/components/ServiceDetail/Blogs";
 import Hero from "@/components/ServiceDetail/Marketing/Hero";
-import { fadeUp, ParaAnim, TitleAnim } from "@/lib/gsapAnimations";
 import { WebpageJsonLd } from "@/lib/json-ld";
-// import MetaData from "@/components/MetaData";
+
+
+const siteUrl = "https://weareenigma.com";
+export const metadata = {
+    title: "Organic Digital Marketing Services To Grow Your Business",
+    description: "Increase brand visibility, website traffic, leads, and sales with Enigma's proprietary approach and proven mix of Content Marketing, SEO, and Social Media techniques.",
+    // img: "index.png", 
+    canonical: "https://weareenigma.com/organic-digital-marketing-services",
+    // slug: "",
+    date_published: "2020-10-22T00:00",
+    date_modified: "2024-12-25T00:00",
+    openGraph: {
+        title: "Organic Digital Marketing Services To Grow Your Business",
+        description: "Increase brand visibility, website traffic, leads, and sales with Enigma's proprietary approach and proven mix of Content Marketing, SEO, and Social Media techniques.",
+        url: "https://weareenigma.com/organic-digital-marketing-services",
+        type: "website",
+        images: [
+            {
+                url: `${siteUrl}/assets/seo/service-marketing.png`,
+                width: 1200,
+                height: 630,
+                alt: "Page Og Image",
+                type: "image/png",
+            },
+        ],
+        locale: "en_US",
+        site_name: "Enigma Digital Agency"
+    },
+    twitter: {
+        card: "summary_large_image",
+        site: "Enigma Digital Agency",
+        title: "Organic Digital Marketing Services To Grow Your Business",
+        description: "Increase brand visibility, website traffic, leads, and sales with Enigma's proprietary approach and proven mix of Content Marketing, SEO, and Social Media techniques.",
+        images: [
+            {
+                url: `${siteUrl}/assets/seo/service-marketing.png`,
+            },],
+    },
+    alternates: {
+        canonical: "https://weareenigma.com/organic-digital-marketing-services",
+        languages: {
+            hrefLang: 'en-US',
+            // href: siteUrl,
+        },
+    },
+}
 
 export default function ServiceDetail() {
-
-    fadeUp();
-    TitleAnim();
-    ParaAnim();
-
-    const metadata = {
+    const dmetadata = {
         title: "Organic Digital Marketing Services To Grow Your Business",
         description: "Increase brand visibility, website traffic, leads, and sales with Enigma's proprietary approach and proven mix of Content Marketing, SEO, and Social Media techniques.",
         img: "service-marketing.png",
@@ -31,8 +69,7 @@ export default function ServiceDetail() {
 
     return (
         <>
-            <WebpageJsonLd metadata={metadata} />
-            {/* <MetaData metadata={metadata} /> */}
+            <WebpageJsonLd metadata={dmetadata} />
             <Layout>
                 <Hero />
                 <SecondSection

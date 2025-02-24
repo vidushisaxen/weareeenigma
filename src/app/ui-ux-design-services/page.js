@@ -1,4 +1,3 @@
-"use client"
 import Layout from "@/components/Layout";
 import NextPage from "@/components/Layout/NextPage";
 import PageLoader from "@/components/PageLoader";
@@ -11,17 +10,58 @@ import Process from "@/components/ServiceDetail/Design/Process";
 import OfferCards from "@/components/ServiceDetail/Design/OfferCards";
 import Blogs from "@/components/ServiceDetail/Blogs";
 import Hero from "@/components/ServiceDetail/Design/Hero";
-import { fadeUp, ParaAnim, TitleAnim } from "@/lib/gsapAnimations";
 import { WebpageJsonLd } from "@/lib/json-ld";
-// import MetaData from "@/components/MetaData";
+
+
+const siteUrl = "https://weareenigma.com";
+export const metadata = {
+    title: "Award-Winning UI/UX Design Services for Digital Excellence | Enigma",
+    description: "Elevate your brand with our UI and UX design services. We craft exceptional digital experiences that boost revenue and user loyalty.",
+    // img: "index.png", 
+    canonical: "https://weareenigma.com/ui-ux-design-services",
+    // slug: "",
+    date_published: "2020-10-22T00:00",
+    date_modified: "2024-12-25T00:00",
+    openGraph: {
+        title: "Award-Winning UI/UX Design Services for Digital Excellence | Enigma",
+        description: "Elevate your brand with our UI and UX design services. We craft exceptional digital experiences that boost revenue and user loyalty.",
+        url: "https://weareenigma.com/ui-ux-design-services",
+        type: "website",
+        images: [
+            {
+                url: `${siteUrl}/assets/seo/service-ui-ux.png`,
+                width: 1200,
+                height: 630,
+                alt: "Page Og Image",
+                type: "image/png",
+            },
+        ],
+        locale: "en_US",
+        site_name: "Enigma Digital Agency"
+    },
+    twitter: {
+        card: "summary_large_image",
+        site: "Enigma Digital Agency",
+        title: "Award-Winning UI/UX Design Services for Digital Excellence | Enigma",
+        description: "Elevate your brand with our UI and UX design services. We craft exceptional digital experiences that boost revenue and user loyalty.",
+        images: [
+            {
+                url: `${siteUrl}/assets/seo/service-ui-ux.png`,
+            },],
+    },
+    alternates: {
+        canonical: "https://weareenigma.com/ui-ux-design-services",
+        languages: {
+            hrefLang: 'en-US',
+            // href: siteUrl,
+        },
+    },
+}
 
 export default function ServiceDetail() {
+    
 
-    fadeUp();
-    TitleAnim();
-    ParaAnim();
-
-    const metadata = {
+    const dmetadata = {
         title: "Award-Winning UI/UX Design Services for Digital Excellence | Enigma",
         description: "Elevate your brand with our UI and UX design services. We craft exceptional digital experiences that boost revenue and user loyalty.",
         img: "service-ui-ux.png",
@@ -32,8 +72,7 @@ export default function ServiceDetail() {
 
     return (
         <>
-            <WebpageJsonLd metadata={metadata} />
-            {/* <MetaData metadata={metadata} /> */}
+            <WebpageJsonLd metadata={dmetadata} />
             <Layout>
                 <Hero />
                 <SecondSection

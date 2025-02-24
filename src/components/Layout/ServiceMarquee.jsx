@@ -1,7 +1,10 @@
+"use client"
 import React, { useEffect } from "react";
 import gsap from "gsap";
+import { fadeUp } from "@/lib/gsapAnimations";
 
 const ServiceMarquee = () => {
+    fadeUp();
 
     useEffect(() => {
         gsap.utils.toArray(".services-catalog-row").forEach((line, i) => {

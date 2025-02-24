@@ -1,4 +1,3 @@
-"use client"
 import Layout from "@/components/Layout";
 import NextPage from "@/components/Layout/NextPage";
 import PageLoader from "@/components/PageLoader";
@@ -11,17 +10,56 @@ import BigText from "@/components/ServiceDetail/BigText";
 import Process from "@/components/ServiceDetail/Strategy/Process";
 import OfferCards from "@/components/ServiceDetail/Strategy/OfferCards";
 import Blogs from "@/components/ServiceDetail/Blogs";
-import { fadeUp, ParaAnim, TitleAnim } from "@/lib/gsapAnimations";
 import { WebpageJsonLd } from "@/lib/json-ld";
-// import MetaData from "@/components/MetaData";
+
+
+const siteUrl = "https://weareenigma.com";
+export const metadata = {
+    title: "Digital Strategy & Marketing Planning Services | Enigma",
+    description: "Digital Strategy and Marketing Planning services that help brands gain clarity, define measurable goals, craft strategies for growth and achieve digital success.",
+    // img: "index.png", 
+    canonical: "https://weareenigma.com/strategy-and-planning-services",
+    // slug: "",
+    date_published: "2020-10-22T00:00",
+    date_modified: "2024-12-25T00:00",
+    openGraph: {
+        title: "Digital Strategy & Marketing Planning Services | Enigma",
+        description: "Contact Enigma for top-tier UI/UX design, front-end development, and organic digital marketing solutions. Let's collaborate and ascend your digital presence.",
+        url: "https://weareenigma.com/strategy-and-planning-services",
+        type: "website",
+        images: [
+            {
+                url: `${siteUrl}/assets/seo/service-strategy.png`,
+                width: 1200,
+                height: 630,
+                alt: "Page Og Image",
+                type: "image/png",
+            },
+        ],
+        locale: "en_US",
+        site_name: "Enigma Digital Agency"
+    },
+    twitter: {
+        card: "summary_large_image",
+        site: "Enigma Digital Agency",
+        title: "Digital Strategy & Marketing Planning Services | Enigma",
+        description: "Digital Strategy and Marketing Planning services that help brands gain clarity, define measurable goals, craft strategies for growth and achieve digital success.",
+        images: [
+            {
+                url: `${siteUrl}/assets/seo/service-strategy.png`,
+            },],
+    },
+    alternates: {
+        canonical: "https://weareenigma.com/strategy-and-planning-services",
+        languages: {
+            hrefLang: 'en-US',
+            // href: siteUrl,
+        },
+    },
+}
 
 export default function ServiceDetail() {
-
-    fadeUp();
-    TitleAnim();
-    ParaAnim();
-
-    const metadata = {
+ const dmetadata = {
         title: "Digital Strategy & Marketing Planning Services | Enigma",
         description: "Digital Strategy and Marketing Planning services that help brands gain clarity, define measurable goals, craft strategies for growth and achieve digital success.",
         img: "service-strategy.png",
@@ -32,8 +70,7 @@ export default function ServiceDetail() {
 
     return (
         <>      
-            <WebpageJsonLd metadata={metadata} />
-            {/* <MetaData metadata={metadata} /> */}
+            <WebpageJsonLd metadata={dmetadata} />
             <Layout>
                 <Hero />
                 <SecondSection

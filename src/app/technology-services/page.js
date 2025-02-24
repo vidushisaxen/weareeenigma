@@ -1,4 +1,3 @@
-"use client"
 import Layout from "@/components/Layout";
 import NextPage from "@/components/Layout/NextPage";
 import PageLoader from "@/components/PageLoader";
@@ -10,17 +9,56 @@ import Process from "@/components/ServiceDetail/Technology/Process";
 import OfferCards from "@/components/ServiceDetail/Technology/OfferCards";
 import Blogs from "@/components/ServiceDetail/Blogs";
 import Hero from "@/components/ServiceDetail/Technology/Hero";
-import { fadeUp, ParaAnim, TitleAnim } from "@/lib/gsapAnimations";
 import { WebpageJsonLd } from "@/lib/json-ld";
-// import MetaData from "@/components/MetaData";
+
+
+const siteUrl = "https://weareenigma.com";
+export const metadata = {
+    title: "Award-Winning Web Development and Technology Services | Enigma",
+    description: "Enigma offers front-end development, custom web and app development, DevOps, cloud engineering, and other technology services to build seamless digital experiences.",
+    // img: "index.png", 
+    canonical: "https://weareenigma.com/technology-services",
+    // slug: "",
+    date_published: "2020-10-22T00:00",
+    date_modified: "2024-12-25T00:00",
+    openGraph: {
+        title: "Award-Winning Web Development and Technology Services | Enigma",
+        description: "Enigma offers front-end development, custom web and app development, DevOps, cloud engineering, and other technology services to build seamless digital experiences.",
+        url: "https://weareenigma.com/technology-services",
+        type: "website",
+        images: [
+            {
+                url: `${siteUrl}/assets/seo/service-technology.png`,
+                width: 1200,
+                height: 630,
+                alt: "Page Og Image",
+                type: "image/png",
+            },
+        ],
+        locale: "en_US",
+        site_name: "Enigma Digital Agency"
+    },
+    twitter: {
+        card: "summary_large_image",
+        site: "Enigma Digital Agency",
+        title: "Award-Winning Web Development and Technology Services | Enigma",
+        description: "Enigma offers front-end development, custom web and app development, DevOps, cloud engineering, and other technology services to build seamless digital experiences.",
+        images: [
+            {
+                url: `${siteUrl}/assets/seo/service-technology.png`,
+            },],
+    },
+    alternates: {
+        canonical: "https://weareenigma.com/technology-services",
+        languages: {
+            hrefLang: 'en-US',
+            // href: siteUrl,
+        },
+    },
+}
 
 export default function ServiceDetail() {
-
-    fadeUp();
-    TitleAnim();
-    ParaAnim();
-
-    const metadata = {
+    const dmetadata = {
         title: "Award-Winning Web Development and Technology Services | Enigma",
         description: "Enigma offers front-end development, custom web and app development, DevOps, cloud engineering, and other technology services to build seamless digital experiences.",
         img: "service-technology.png",
@@ -31,8 +69,7 @@ export default function ServiceDetail() {
 
     return (
         <>
-            <WebpageJsonLd metadata={metadata} />
-            {/* <MetaData metadata={metadata} /> */}
+            <WebpageJsonLd metadata={dmetadata} />
             <Layout>
                 <Hero />
                 <SecondSection

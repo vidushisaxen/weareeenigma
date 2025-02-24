@@ -32,6 +32,39 @@ const Hero = ({ cursorColor, title, industry, year, link, linkText }) => {
         });
         return () => ctx.revert();
     }, []);
+    useEffect(() => {
+        let ctx = gsap.context(() => {
+            gsap.to(".color-text", {
+                scrollTrigger: {
+                    trigger: "#color-section",
+                    invalidateOnRefresh: true,
+                    scrub: true,
+                    start: "center bottom",
+                },
+                y: "-20%",
+                ease: "none",
+            });
+        });
+        return () => ctx.revert();
+    });
+
+    useEffect(() => {
+        let ctx = gsap.context(() => {
+            gsap.from(".color", {
+                scrollTrigger: {
+                    trigger: ".color",
+                    start: "center 80%",
+                },
+                opacity: 0,
+                scaleX: "0",
+                stagger: 0.2,
+                duration: 0.5,
+            });
+        });
+        return () => ctx.revert();
+    });
+
+
 
     return (
         <section id="hero" data-cursor-text="" data-cursor-size="10px">

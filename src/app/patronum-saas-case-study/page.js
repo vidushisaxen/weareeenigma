@@ -1,4 +1,3 @@
-"use client"
 import Layout from "@/components/Layout";
 import PageLoader from "@/components/PageLoader";
 import Client from "@/components/PortfolioDetail/Client";
@@ -9,53 +8,56 @@ import ParallaxImage from "@/components/PortfolioDetail/ParallaxImage";
 import Testimonial from "@/components/PortfolioDetail/Testimonial";
 import VideoSection from "@/components/PortfolioDetail/VideoSection";
 import Image from "next/image";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { useEffect, useRef } from "react";
 import ProjectSlider from "@/components/PortfolioDetail/ProjectSlider";
 import { WebpageJsonLd } from "@/lib/json-ld";
-// import MetaData from "@/components/MetaData";
 
-gsap.registerPlugin(ScrollTrigger);
+const siteUrl = "https://weareenigma.com";
+export const metadata = {
+    title: "Patronum Branding & Website Design Case Study | Enigma",
+    description: "Enigma's Success Story of Patronum's Branding, UI/UX design, Website Design,and Front-End Development, achieving remarkable results for the SaaS Product.",
+    // img: "index.png", 
+    canonical: "https://weareenigma.com/patronum-saas-case-study",
+    // slug: "",
+    date_published: "2020-10-22T00:00",
+    date_modified: "2024-12-25T00:00",
+    openGraph: {
+        title: "Patronum Branding & Website Design Case Study | Enigma",
+        description: "Enigma's Success Story of Patronum's Branding, UI/UX design, Website Design,and Front-End Development, achieving remarkable results for the SaaS Product.",
+        url: "https://weareenigma.com/patronum-saas-case-study",
+        type: "website",
+        images: [
+            {
+                url: `${siteUrl}/assets/seo/portfolio-patronum.png`,
+                width: 1200,
+                height: 630,
+                alt: "Page Og Image",
+                type: "image/png",
+            },
+        ],
+        locale: "en_US",
+        site_name: "Enigma Digital Agency"
+    },
+    twitter: {
+        card: "summary_large_image",
+        site: "Enigma Digital Agency",
+        title: "Patronum Branding & Website Design Case Study | Enigma",
+        description: "Enigma's Success Story of Patronum's Branding, UI/UX design, Website Design,and Front-End Development, achieving remarkable results for the SaaS Product.",
+        images: [
+            {
+                url: `${siteUrl}/assets/seo/portfolio-patronum.png`,
+            },],
+    },
+    alternates: {
+        canonical: "https://weareenigma.com/patronum-saas-case-study",
+        languages: {
+            hrefLang: 'en-US',
+            // href: siteUrl,
+        },
+    },
+}
 
 export default function PortfolioDetail() {
-    const colorContainer = useRef(null);
-    const text = useRef(null);
-
-    useEffect(() => {
-        let ctx = gsap.context(() => {
-            gsap.to(text.current, {
-                scrollTrigger: {
-                    trigger: colorContainer.current,
-                    invalidateOnRefresh: true,
-                    scrub: true,
-                    start: "center bottom",
-                },
-                y: "-20%",
-                ease: "none",
-            });
-        });
-        return () => ctx.revert();
-    });
-
-    useEffect(() => {
-        const lines = colorContainer.current.querySelectorAll(".color")
-        let ctx = gsap.context(() => {
-            gsap.from(lines, {
-                scrollTrigger: {
-                    trigger: lines,
-                    start: "center 80%",
-                },
-                opacity: 0,
-                scaleX: "0",
-                stagger: 0.2,
-                duration: 0.5,
-            });
-        });
-        return () => ctx.revert();
-    });
-
-    const metadata = {
+     const dmetadata = {
         title: "Patronum Branding & Website Design Case Study | Enigma",
         description: "Enigma's Success Story of Patronum's Branding, UI/UX design, Website Design,and Front-End Development, achieving remarkable results for the SaaS Product.",
         img: "portfolio-patronum.png",
@@ -66,8 +68,7 @@ export default function PortfolioDetail() {
 
     return (
         <>
-            <WebpageJsonLd metadata={metadata} />
-            {/* <MetaData metadata={metadata} /> */}
+            <WebpageJsonLd metadata={dmetadata} />
             <Layout>
                 <Hero cursorColor="#0165E1" title="Swiss Army Knife for Google Workspace" linkText="Patronum.io" link="https://www.patronum.io" industry="SAAS" year="2019" />
                 <ParallaxImage id="firstFade" imgSrc="/patronum/patronum-casestudy-image-1.webp" alt="patronum casestudy image 1" cursorColor="#3F86E4" cursorText="Patronum" />
@@ -119,11 +120,11 @@ export default function PortfolioDetail() {
                 </section>
 
                 {/* Colors Section */}
-                <section ref={colorContainer} id="color-section">
+                <section  id="color-section">
                     <div className="h-screen w-[85%] relative mx-auto my-[10vw] tablet:my-[15vw] tablet:h-auto">
                         <h3 className="font-heading font-medium text-[4vw] text-black2 uppercase mb-[2.5vw] tablet:text-[5vw] mobile:text-[7vw] tablet:mb-[6vw] mobile:mb-10">Colours</h3>
                         <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center tablet:hidden">
-                            <p ref={text} className="text-[17vw] leading-[1] font-heading font-semibold text-white2 translate-y-[20%]">
+                            <p  className="text-[17vw] leading-[1] font-heading font-semibold text-white2 translate-y-[20%] color-text">
                                 Colour <br /> Palette
                             </p>
                         </div>

@@ -1,8 +1,14 @@
 "use client"
+import { fadeUp, ParaAnim, TitleAnim } from "@/lib/gsapAnimations";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 
 const Hero = () => {
+
+    fadeUp();
+    ParaAnim();
+    TitleAnim();
+
     const container = useRef(null);
     const videoRef = useRef(null);
 

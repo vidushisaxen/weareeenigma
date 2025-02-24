@@ -1,4 +1,3 @@
-"use client"
 import Layout from "@/components/Layout";
 import PageLoader from "@/components/PageLoader";
 import Client from "@/components/PortfolioDetail/Client";
@@ -9,36 +8,57 @@ import ParallaxImage from "@/components/PortfolioDetail/ParallaxImage";
 import Testimonial from "@/components/PortfolioDetail/Testimonial";
 import VideoSection from "@/components/PortfolioDetail/VideoSection";
 import Image from "next/image";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { useEffect, useRef } from "react";
 import ProjectSlider from "@/components/PortfolioDetail/ProjectSlider";
 import { WebpageJsonLd } from "@/lib/json-ld";
-// import MetaData from "@/components/MetaData";
 
-gsap.registerPlugin(ScrollTrigger);
+
+const siteUrl = "https://weareenigma.com";
+export const metadata = {
+    title: "Garden City Mall - Phygital Shopping Experience Case Study | Enigma",
+    description: "Witness how we crafted a phygital shopping experience for Lagos' premier retail destination. Explore Garden City Mall's digital transformation case study with Enigma.",
+    // img: "index.png", 
+    canonical: "https://weareenigma.com/gcm-phygital-shopping-case-study",
+    // slug: "",
+    date_published: "2020-10-22T00:00",
+    date_modified: "2024-12-25T00:00",
+    openGraph: {
+        title: "Garden City Mall - Phygital Shopping Experience Case Study | Enigma",
+        description: "Witness how we crafted a phygital shopping experience for Lagos' premier retail destination. Explore Garden City Mall's digital transformation case study with Enigma.",
+        url: "https://weareenigma.com/gcm-phygital-shopping-case-study",
+        type: "website",
+        images: [
+            {
+                url: `${siteUrl}/assets/seo/portfolio-gcm.png`,
+                width: 1200,
+                height: 630,
+                alt: "Page Og Image",
+                type: "image/png",
+            },
+        ],
+        locale: "en_US",
+        site_name: "Enigma Digital Agency"
+    },
+    twitter: {
+        card: "summary_large_image",
+        site: "Enigma Digital Agency",
+        title: "Garden City Mall - Phygital Shopping Experience Case Study | Enigma",
+        description: "Witness how we crafted a phygital shopping experience for Lagos' premier retail destination. Explore Garden City Mall's digital transformation case study with Enigma.",
+        images: [
+            {
+                url: `${siteUrl}/assets/seo/portfolio-gcm.png`,
+            },],
+    },
+    alternates: {
+        canonical: "https://weareenigma.com/gcm-phygital-shopping-case-study",
+        languages: {
+            hrefLang: 'en-US',
+            // href: siteUrl,
+        },
+    },
+}
 
 export default function PortfolioDetail() {
-    const colorContainer = useRef(null);
-    const text = useRef(null);
-
-    useEffect(() => {
-        let ctx = gsap.context(() => {
-            gsap.to(text.current, {
-                scrollTrigger: {
-                    trigger: colorContainer.current,
-                    invalidateOnRefresh: true,
-                    scrub: true,
-                    start: "center bottom",
-                },
-                y: "-20%",
-                ease: "none",
-            });
-        });
-        return () => ctx.revert();
-    });
-
-    const metadata = {
+    const dmetadata = {
         title: "Garden City Mall - Phygital Shopping Experience Case Study | Enigma",
         description: "Witness how we crafted a phygital shopping experience for Lagos' premier retail destination. Explore Garden City Mall's digital transformation case study with Enigma.",
         img: "portfolio-gcm.png",
@@ -49,8 +69,7 @@ export default function PortfolioDetail() {
 
     return (
         <>
-            <WebpageJsonLd metadata={metadata} />
-            {/* <MetaData metadata={metadata} /> */}
+            <WebpageJsonLd metadata={dmetadata} />
             <Layout>
                 <Hero cursorColor="#0165E1" title="Revolutionizing the Shopping Mall Experience" linkText="gardencitymall.com" link="https://grandmall.netlify.app/" industry="RETAIL" year="2022" />
                 <ParallaxImage id="firstFade" imgSrc="/gcm/gcm-casestudy-image-1.webp" alt="gcm casestudy image 1" cursorColor="#EF9C34" cursorText="GCM" />
@@ -102,11 +121,11 @@ export default function PortfolioDetail() {
                 </section>
 
                 {/* Colors Section */}
-                <section ref={colorContainer} id="color-section">
+                <section  id="color-section">
                     <div className="h-screen w-[85%] relative mx-auto my-[10vw] tablet:my-[15vw] tablet:h-[50vh] mobile:h-[40vh]">
                         <h3 className="font-heading font-medium text-[4vw] text-black2 uppercase mb-[2.5vw] tablet:text-[5vw] mobile:text-[7vw] tablet:mb-[6vw] mobile:mb-10">Colours</h3>
                         <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center">
-                            <p ref={text} className="text-[17vw] leading-[1] font-heading font-semibold text-white2 translate-y-[20%]">
+                            <p  className="text-[17vw] leading-[1] font-heading font-semibold text-white2 translate-y-[20%] color-text">
                                 Colour <br /> Palette
                             </p>
                         </div>

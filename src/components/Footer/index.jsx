@@ -4,9 +4,11 @@ import Link from "next/link";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useEffect, useRef } from "react";
+import { fadeUp } from "@/lib/gsapAnimations";
 gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
+  fadeUp();
   const footerContainer = useRef(null);
 
   useEffect(() => {

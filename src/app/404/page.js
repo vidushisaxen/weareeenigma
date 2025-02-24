@@ -1,22 +1,21 @@
+"use client"
 /* eslint-disable @next/next/no-html-link-for-pages */
 import styles from "@/styles/404.module.css";
-// import MetaData from "@/components/MetaData";
 import { Cursor } from "@/components/Cursor";
 import { WebpageJsonLd } from "@/lib/json-ld";
+import { fadeUp } from "@/lib/gsapAnimations";
 
 export default function NotFound() {
-
+fadeUp();
     const metadata = {
         title: '404 | Page Not Found',
         description: '404 Page not found please go back to home. This is Enigma Digital.',
         img: 'index.png',
         slug: '404',
     }
-
     return (
         <>
         <WebpageJsonLd metadata={metadata}/>
-            {/* <MetaData metadata={metadata} /> */}
             <Cursor />
             <section>
                 <div className={styles.container}>

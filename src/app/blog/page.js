@@ -3,7 +3,7 @@ import CategoryList from "@/components/Blogs/CategoryList";
 import FeaturedBlog from "@/components/Blogs/FeaturedBlog";
 import Layout from "@/components/Layout";
 import PageLoader from "@/components/PageLoader";
-import { WebsiteJsonLd } from "@/lib/json-ld";
+// import { WebsiteJsonLd } from "@/lib/json-ld";
 import { getCategories } from "@/sanity/lib/categoryQuery";
 import { getBlogPosts } from "@/sanity/lib/queries";
 
@@ -64,18 +64,18 @@ export async function generateMetadata() {
 export default async function Blog() {
   const { featuredBlog, nonFeaturedBlogs, categories } = await fetchData();
 
-  const metadata = {
-    title: "The Enigma Blog | Discover, Learn & Be Future Ready",
-    description: "Dive into our curated collection of articles on UI/UX Design, Digital Marketing, Technology & Human Psychology. Stay updated with the latest trends.",
-    img: "blog.png",
-    slug: "blog",
-    date_published: "2023-01-01T00:00",
-    date_modified: "2024-12-25T00:00",
-}
+//   const metadata = {
+//     title: "The Enigma Blog | Discover, Learn & Be Future Ready",
+//     description: "Dive into our curated collection of articles on UI/UX Design, Digital Marketing, Technology & Human Psychology. Stay updated with the latest trends.",
+//     img: "blog.png",
+//     slug: "blog",
+//     date_published: "2023-01-01T00:00",
+//     date_modified: "2024-12-25T00:00",
+// }
 
   return (
     <>
-    <WebsiteJsonLd metadata={metadata}/>
+    {/* <WebsiteJsonLd metadata={metadata}/> */}
       <Layout>
         {/* ✅ Featured Blog Section */}
         <FeaturedBlog featuredBlog={featuredBlog} />

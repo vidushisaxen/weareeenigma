@@ -5,11 +5,11 @@ import FullTimeListing from "@/components/Careers/FullTimeListing";
 import Hero from "@/components/Careers/Hero";
 import InternshipListing from "@/components/Careers/InternshipListing";
 import Layout from "@/components/Layout";
-import MetaData from "@/components/MetaData";
+// import MetaData from "@/components/MetaData";
 import PageLoader from "@/components/PageLoader";
 import { fadeUp, ParaAnim, TitleAnim } from "@/lib/gsapAnimations";
 import { getCareers } from '@/sanity/lib/careersquery';
-import { WebPageJsonLd } from "next-seo";
+// import { WebPageJsonLd } from "next-seo";
 import { useEffect, useState } from "react";
 
 export default function Careers() {
@@ -65,7 +65,7 @@ export default function Careers() {
   
     return (
         <>
-        <WebPageJsonLd metadata={metadata}/>
+        {/* <WebPageJsonLd metadata={metadata}/> */}
             <Layout>
                 <Hero />
                 <BrowseJobs />

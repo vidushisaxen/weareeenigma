@@ -12,6 +12,7 @@ import MobilePortfolio from "./MobilePortfolio";
 gsap.registerPlugin(ScrollTrigger);
 
 const WorksPortfolio = () => {
+    fadeUp();
     const container = useRef(null);
     const text = useRef(null);
     const head = useRef(null);

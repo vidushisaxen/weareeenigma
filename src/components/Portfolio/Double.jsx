@@ -1,10 +1,12 @@
 "use client"
+import { fadeUp } from "@/lib/gsapAnimations";
 import styles from "./double.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 
 const Double = ({ projects }) => {
+  fadeUp();
   const firstImage = useRef(null);
   const secondImage = useRef(null);
   const firstBody = useRef(null);

@@ -1,4 +1,3 @@
-"use client"
 import Layout from "@/components/Layout";
 import PageLoader from "@/components/PageLoader";
 import Client from "@/components/PortfolioDetail/Client";
@@ -9,53 +8,56 @@ import ParallaxImage from "@/components/PortfolioDetail/ParallaxImage";
 import Testimonial from "@/components/PortfolioDetail/Testimonial";
 import VideoSection from "@/components/PortfolioDetail/VideoSection";
 import Image from "next/image";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { useEffect, useRef } from "react";
 import ProjectSlider from "@/components/PortfolioDetail/ProjectSlider";
 import { WebpageJsonLd } from "@/lib/json-ld";
-// import MetaData from "@/components/MetaData";
 
-gsap.registerPlugin(ScrollTrigger);
+const siteUrl = "https://weareenigma.com";
+export const metadata = {
+    title: "PDTL Ecommerce & Marketing Automation Case Study | Enigma",
+    description: "Driving business succeess for a logistics company through marketing automation, neatly integrated with an ecommerce website for ease of maintenance.",
+    // img: "index.png", 
+    canonical: "https://weareenigma.com/pdtl-ecommerce-automation-case-study",
+    // slug: "",
+    date_published: "2020-10-22T00:00",
+    date_modified: "2024-12-25T00:00",
+    openGraph: {
+        title: "PDTL Ecommerce & Marketing Automation Case Study | Enigma",
+        description: "Driving business succeess for a logistics company through marketing automation, neatly integrated with an ecommerce website for ease of maintenance.",
+        url: "https://weareenigma.com/pdtl-ecommerce-automation-case-study",
+        type: "website",
+        images: [
+            {
+                url: `${siteUrl}/assets/seo/portfolio-pdtl.png`,
+                width: 1200,
+                height: 630,
+                alt: "Page Og Image",
+                type: "image/png",
+            },
+        ],
+        locale: "en_US",
+        site_name: "Enigma Digital Agency"
+    },
+    twitter: {
+        card: "summary_large_image",
+        site: "Enigma Digital Agency",
+        title: "PDTL Ecommerce & Marketing Automation Case Study | Enigma",
+        description: "Driving business succeess for a logistics company through marketing automation, neatly integrated with an ecommerce website for ease of maintenance.",
+        images: [
+            {
+                url: `${siteUrl}/assets/seo/portfolio-pdtl.png`,
+            },],
+    },
+    alternates: {
+        canonical: "https://weareenigma.com/pdtl-ecommerce-automation-case-study",
+        languages: {
+            hrefLang: 'en-US',
+            // href: siteUrl,
+        },
+    },
+}
 
 export default function PortfolioDetail() {
-    const colorContainer = useRef(null);
-    const text = useRef(null);
-
-    useEffect(() => {
-        let ctx = gsap.context(() => {
-            gsap.to(text.current, {
-                scrollTrigger: {
-                    trigger: colorContainer.current,
-                    invalidateOnRefresh: true,
-                    scrub: true,
-                    start: "center bottom",
-                },
-                y: "-20%",
-                ease: "none",
-            });
-        });
-        return () => ctx.revert();
-    });
-
-    useEffect(() => {
-        const lines = colorContainer.current.querySelectorAll(".color")
-        let ctx = gsap.context(() => {
-            gsap.from(lines, {
-                scrollTrigger: {
-                    trigger: lines,
-                    start: "center 80%",
-                },
-                opacity: 0,
-                scale: "0",
-                stagger: 0.2,
-                duration: 0.5,
-            });
-        });
-        return () => ctx.revert();
-    });
-
-    const metadata = {
+    const dmetadata = {
         title: "PDTL Ecommerce & Marketing Automation Case Study | Enigma",
         description: "Driving business succeess for a logistics company through marketing automation, neatly integrated with an ecommerce website for ease of maintenance.",
         img: "portfolio-pdtl.png",
@@ -66,8 +68,7 @@ export default function PortfolioDetail() {
 
     return (
         <>
-            <WebpageJsonLd metadata={metadata} />
-            {/* <MetaData metadata={metadata} /> */}
+            <WebpageJsonLd metadata={dmetadata} />
             <Layout>
                 <Hero cursorColor="#234BA7" title="Driving Digital Success for a Leading Logistics Firm" linkText="ptllgv.co.uk" link="https://ptllgv.co.uk/" industry="Logistics" year="2022" />
                 <ParallaxImage id="firstFade" imgSrc="/pdtl/pdtl-case-study-image-1.webp" alt="pdtl casestudy image 1" cursorColor="#234BA7" cursorText="PDTL" />
@@ -124,11 +125,11 @@ export default function PortfolioDetail() {
                 </section>
 
                 {/* Colors Section */}
-                <section ref={colorContainer} id="color-section">
+                <section  id="color-section">
                     <div className="h-[80vh] w-[85%] relative mx-auto my-[10vw] tablet:my-[15vw] tablet:h-[40vw] mobile:h-[60vw]">
                         <h3 className="font-heading font-medium text-[4vw] text-black2 uppercase mb-[2.5vw] tablet:text-[5vw] mobile:text-[7vw] tablet:mb-[6vw] mobile:mb-0">Colours</h3>
                         <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center tablet:hidden">
-                            <p ref={text} className="text-[15vw] leading-[1] font-heading font-semibold text-white2 translate-y-[20%]">
+                            <p  className="text-[15vw] leading-[1] font-heading font-semibold text-white2 translate-y-[20%] color-text">
                                 Colour <br /> Palette
                             </p>
                         </div>

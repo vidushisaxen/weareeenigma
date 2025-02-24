@@ -4,10 +4,12 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { fadeUp } from '@/lib/gsapAnimations';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Portfolio({ data, heading1, heading2 }) {
+  fadeUp();
   const container = useRef(null);
   const main = useRef(null);
 

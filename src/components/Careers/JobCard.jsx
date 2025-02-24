@@ -1,7 +1,10 @@
+"use client"
 import Link from "next/link"
 import Image from "next/image"
+import { fadeUp } from "@/lib/gsapAnimations"
 
 const JobCard = ({ benefits, link, img, title, text, status }) => {
+    fadeUp();
     return (
         <div className="w-full h-full fadeup">
             <Link href={`/careers/${link}`} className={`relative shadow-lg px-7 py-10 space-y-10 duration-300 rounded-2xl dark:bg-white2 hover:bg-white group grid grid-rows-[auto auto auto auto] h-full tablet:space-y-8 ${status === 'Closed' ? 'pointer-events-none' : ''}`}>

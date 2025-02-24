@@ -1,4 +1,3 @@
-"use client"
 import Layout from "@/components/Layout";
 import PageLoader from "@/components/PageLoader";
 import Client from "@/components/PortfolioDetail/Client";
@@ -9,53 +8,56 @@ import ParallaxImage from "@/components/PortfolioDetail/ParallaxImage";
 import Testimonial from "@/components/PortfolioDetail/Testimonial";
 import VideoSection from "@/components/PortfolioDetail/VideoSection";
 import Image from "next/image";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { useEffect, useRef } from "react";
 import ProjectSlider from "@/components/PortfolioDetail/ProjectSlider";
-// import MetaData from "@/components/MetaData";
 import { WebpageJsonLd } from "@/lib/json-ld";
 
-gsap.registerPlugin(ScrollTrigger);
+const siteUrl = "https://weareenigma.com";
+export const metadata = {
+    title: "Catapulting Patra's CX Through UX - Case Study | Enigma",
+    description: "Dive into our Strategy, UX Planning, UI Design apporach, and the remarkable results we deliverd for Patra Corp, by building a real time reporting dashboard for their clients.",
+    // img: "index.png", 
+    canonical: "https://weareenigma.com/patra-saas-insurtech-case-study",
+    // slug: "",
+    date_published: "2020-10-22T00:00",
+    date_modified: "2024-12-25T00:00",
+    openGraph: {
+        title: "Catapulting Patra's CX Through UX - Case Study | Enigma",
+        description: "Dive into our Strategy, UX Planning, UI Design apporach, and the remarkable results we deliverd for Patra Corp, by building a real time reporting dashboard for their clients.",
+        url: "https://weareenigma.com/patra-saas-insurtech-case-study",
+        type: "website",
+        images: [
+            {
+                url: `${siteUrl}/assets/seo/portfolio-patra.png`,
+                width: 1200,
+                height: 630,
+                alt: "Page Og Image",
+                type: "image/png",
+            },
+        ],
+        locale: "en_US",
+        site_name: "Enigma Digital Agency"
+    },
+    twitter: {
+        card: "summary_large_image",
+        site: "Enigma Digital Agency",
+        title: "Catapulting Patra's CX Through UX - Case Study | Enigma",
+        description: "Dive into our Strategy, UX Planning, UI Design apporach, and the remarkable results we deliverd for Patra Corp, by building a real time reporting dashboard for their clients.",
+        images: [
+            {
+                url: `${siteUrl}/assets/seo/portfolio-patra.png`,
+            },],
+    },
+    alternates: {
+        canonical: "https://weareenigma.com/patra-saas-insurtech-case-study",
+        languages: {
+            hrefLang: 'en-US',
+            // href: siteUrl,
+        },
+    },
+}
 
 export default function PortfolioDetail() {
-    const colorContainer = useRef(null);
-    const text = useRef(null);
-
-    useEffect(() => {
-        let ctx = gsap.context(() => {
-            gsap.to(text.current, {
-                scrollTrigger: {
-                    trigger: colorContainer.current,
-                    invalidateOnRefresh: true,
-                    scrub: true,
-                    start: "center bottom",
-                },
-                y: "-20%",
-                ease: "none",
-            });
-        });
-        return () => ctx.revert();
-    });
-
-    useEffect(() => {
-        const lines = colorContainer.current.querySelectorAll(".color")
-        let ctx = gsap.context(() => {
-            gsap.from(lines, {
-                scrollTrigger: {
-                    trigger: lines,
-                    start: "center 80%",
-                },
-                opacity: 0,
-                scaleX: "0",
-                stagger: 0.2,
-                duration: 0.5,
-            });
-        });
-        return () => ctx.revert();
-    });
-
-    const metadata = {
+    const dmetadata = {
         title: "Catapulting Patra's CX Through UX - Case Study | Enigma",
         description: "Dive into our Strategy, UX Planning, UI Design apporach, and the remarkable results we deliverd for Patra Corp, by building a real time reporting dashboard for their clients.",
         img: "portfolio-patra.png",
@@ -66,8 +68,7 @@ export default function PortfolioDetail() {
 
     return (
         <>
-            <WebpageJsonLd metadata={metadata} />
-            {/* <MetaData metadata={metadata} /> */}
+            <WebpageJsonLd metadata={dmetadata} />
             <Layout>
                 <Hero cursorColor="#436AD6" title="Client Reporting Dashboard for BPO Services" linkText="patracorp.com" link="https://www.patracorp.com/" industry="SAAS" year="2022" />
                 <ParallaxImage id="firstFade" imgSrc="/patra/patra-case-study-image-1.webp" alt="patra casestudy image 1" cursorColor="#436AD6" cursorText="Patra" />
@@ -122,11 +123,11 @@ export default function PortfolioDetail() {
                 </section>
 
                 {/* Colors Section */}
-                <section ref={colorContainer} id="color-section">
+                <section  id="color-section">
                     <div className="h-screen w-[85%] relative mx-auto my-[10vw] tablet:my-[15vw] tablet:h-auto">
                         <h3 className="font-heading font-medium text-[4vw] text-black2 uppercase mb-[2.5vw] tablet:text-[5vw] mobile:text-[7vw] tablet:mb-[6vw] mobile:mb-10">Colours</h3>
                         <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center tablet:hidden">
-                            <p ref={text} className="text-[17vw] leading-[1] font-heading font-semibold text-white2 translate-y-[20%]">
+                            <p  className="text-[17vw] leading-[1] font-heading font-semibold text-white2 translate-y-[20%] color-text">
                                 Colour <br /> Palette
                             </p>
                         </div>

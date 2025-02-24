@@ -2,12 +2,14 @@
 import gsap from 'gsap';
 import React, { useEffect, useRef } from 'react'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { fadeUp } from '@/lib/gsapAnimations';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Process = () => {
     const container = useRef(null);
     const head = useRef(null);
+    fadeUp();
 
     useEffect(() => {
         const heading = head.current.querySelectorAll(".span");

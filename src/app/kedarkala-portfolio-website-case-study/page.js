@@ -1,4 +1,3 @@
-"use client"
 import Layout from "@/components/Layout";
 import PageLoader from "@/components/PageLoader";
 import Client from "@/components/PortfolioDetail/Client";
@@ -10,12 +9,56 @@ import Testimonial from "@/components/PortfolioDetail/Testimonial";
 import VideoSection from "@/components/PortfolioDetail/VideoSection";
 import Image from "next/image";
 import ProjectSlider from "@/components/PortfolioDetail/ProjectSlider";
-// import MetaData from "@/components/MetaData";
 import { WebpageJsonLd } from "@/lib/json-ld";
 
-export default function PortfolioDetail() {
 
-    const metadata = {
+const siteUrl = "https://weareenigma.com";
+export const metadata = {
+    title: "Kedarkala Web Design, UX & Branding Case Study | Enigma",
+    description: "Dive into Kedarkala's transformation with Enigma's branding and Web Design expertise. Discover our approach, tech stack, and the stunning results achieved.",
+    // img: "index.png", 
+    canonical: "https://weareenigma.com/kedarkala-portfolio-website-case-study",
+    // slug: "",
+    date_published: "2020-10-22T00:00",
+    date_modified: "2024-12-25T00:00",
+    openGraph: {
+        title: "Kedarkala Web Design, UX & Branding Case Study | Enigma",
+        description: "Dive into Kedarkala's transformation with Enigma's branding and Web Design expertise. Discover our approach, tech stack, and the stunning results achieved.",
+        url: "https://weareenigma.com/kedarkala-portfolio-website-case-study",
+        type: "website",
+        images: [
+            {
+                url: `${siteUrl}/assets/seo/portfolio-kedarkala.png`,
+                width: 1200,
+                height: 630,
+                alt: "Page Og Image",
+                type: "image/png",
+            },
+        ],
+        locale: "en_US",
+        site_name: "Enigma Digital Agency"
+    },
+    twitter: {
+        card: "summary_large_image",
+        site: "Enigma Digital Agency",
+        title: "Kedarkala Web Design, UX & Branding Case Study | Enigma",
+        description: "Dive into Kedarkala's transformation with Enigma's branding and Web Design expertise. Discover our approach, tech stack, and the stunning results achieved.",
+        images: [
+            {
+                url: `${siteUrl}/assets/seo/portfolio-kedarkala.png`,
+            },],
+    },
+    alternates: {
+        canonical: "https://weareenigma.com/kedarkala-portfolio-website-case-study",
+        languages: {
+            hrefLang: 'en-US',
+            // href: siteUrl,
+        },
+    },
+}
+
+export default function PortfolioDetail() {
+ const dmetadata = {
         title: "Kedarkala Web Design, UX & Branding Case Study | Enigma",
         description: "Dive into Kedarkala's transformation with Enigma's branding and Web Design expertise. Discover our approach, tech stack, and the stunning results achieved.",
         img: "portfolio-keadrkala.png",
@@ -26,8 +69,7 @@ export default function PortfolioDetail() {
 
     return (
         <>
-            <WebpageJsonLd metadata={metadata} />
-            {/* <MetaData metadata={metadata} /> */}
+            <WebpageJsonLd metadata={dmetadata} />
             <Layout>
                 <Hero cursorColor="#000" title="Kedarkala, a Luxury Interior Design Studio" linkText="kedarkala.com" link="https://phpstack-156292-2479564.cloudwaysapps.com/" industry="INTERIOR DESIGN" year="2022" />
                 <ParallaxImage id="firstFade" imgSrc="/kedarkala/kedarkala-casestudy-image-1.webp" alt="kedarkala casestudy image 1" cursorColor="#000" cursorText="Kedarkala" />

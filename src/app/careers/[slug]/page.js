@@ -25,18 +25,18 @@ export default async function CareerDetailPage({ params }) {
     );
   }
 
-  const metadata = {
-    title: `${title} | Careers at Enigma Digital`,
-    description: seo.description,
-    img: "career.png",
-    slug: `careers/${job.slug}`,
-    date_published: "2023-01-01T00:00",
-    date_modified: "2024-12-25T00:00",
-  }
+  // const metadata = {
+  //   title: `${title} | Careers at Enigma Digital`,
+  //   description: seo.description,
+  //   img: "career.png",
+  //   slug: `careers/${job.slug}`,
+  //   date_published: "2023-01-01T00:00",
+  //   date_modified: "2024-12-25T00:00",
+  // }
 
   return (
     <>
-    <WebpageJsonLd metadata={metadata}/>
+    {/* <WebpageJsonLd metadata={metadata}/> */}
       <Layout>
         {job.tag[0].name === "Closed" && (
           <div className="fixed top-0 left-0 px-4 text-center right-0 bottom-0 z-20 text-white dark:text-black bg-[#00000050] backdrop-blur-md flex items-center justify-center">

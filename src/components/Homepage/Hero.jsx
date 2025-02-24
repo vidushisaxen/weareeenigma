@@ -2,10 +2,13 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Image from "next/image";
+import { fadeUp } from "@/lib/gsapAnimations";
 
 const Hero = () => {
     const container = useRef(null);
     const videoRef = useRef(null);
+
+    fadeUp();
 
     useEffect(() => {
         const herotext = container.current.querySelectorAll(".hero-anim");

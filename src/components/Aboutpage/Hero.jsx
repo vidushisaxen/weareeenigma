@@ -3,10 +3,14 @@ import gsap from 'gsap';
 import React, { useEffect, useRef } from 'react'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import styles from "./index.module.css";
+import { fadeUp, ParaAnim, TitleAnim } from '@/lib/gsapAnimations';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
+    TitleAnim();
+    ParaAnim();
+    fadeUp();
     const container = useRef(null);
     const svgRef = useRef(null);
     const headingRef = useRef(null);
