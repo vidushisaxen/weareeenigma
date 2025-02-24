@@ -139,6 +139,9 @@ export function ImageObjectJsonLd() {
 export function WebpageJsonLd({ dmetadata = {} }) {
   const { title, slug, description, date_published, date_modified } = dmetadata;
 
+  console.log("Date Published:", date_published);
+  console.log("Date Modified:", date_modified);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",

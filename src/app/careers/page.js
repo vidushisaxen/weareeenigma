@@ -8,6 +8,7 @@ import Layout from "@/components/Layout";
 // import MetaData from "@/components/MetaData";
 import PageLoader from "@/components/PageLoader";
 import { fadeUp, ParaAnim, TitleAnim } from "@/lib/gsapAnimations";
+import { WebpageJsonLd } from "@/lib/json-ld";
 import { getCareers } from '@/sanity/lib/careersquery';
 // import { WebPageJsonLd } from "next-seo";
 import { useEffect, useState } from "react";
@@ -17,7 +18,7 @@ export default function Careers() {
     TitleAnim();
     ParaAnim();
 
-    const metadata = {
+    const dmetadata = {
         title: "Careers in Design, Tech & Marketing | Current Openings",
         description: "Explore exciting roles in UI/UX Design, Front-End Development, Digital Marketing, Business Development, and more. Impactful work in a collaborative environment.",
         img: "career.png",
@@ -65,7 +66,7 @@ export default function Careers() {
   
     return (
         <>
-        {/* <WebPageJsonLd metadata={metadata}/> */}
+        <WebpageJsonLd metadata={dmetadata}/>
             <Layout>
                 <Hero />
                 <BrowseJobs />

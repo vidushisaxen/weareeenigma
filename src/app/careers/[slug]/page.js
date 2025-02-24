@@ -6,6 +6,7 @@ import PageLoader from "@/components/PageLoader";
 import Layout from "@/components/Layout";
 import JobApplicationForm from "@/components/Careers/JobApplicationForm";
 import styles from "@/components/Careers/index.module.css";
+import { notFound } from "next/navigation";
 import { WebpageJsonLd } from "@/lib/json-ld";
 
 export async function generateStaticParams() {
@@ -16,27 +17,84 @@ export async function generateStaticParams() {
   return validJobs.map((job) => ({ slug: job.slug.current }));
 }
 
-export default async function CareerDetailPage({ params }) {
+export async function generateMetadata({ params }) {
   const job = await careersQuery(params.slug);
-  console.log(job);
+  // console.log(job);
+
+  const siteUrl = `https://weareenigma.com/careers/${params.slug}`;
+
   if (!job) {
-    return (
-      <div className="text-center text-red-500 text-lg">Job not found</div>
-    );
+    return {
+      title: "Job Not Found | Careers at Enigma Digital",
+      description: "This job posting is no longer available.",
+      canonical: siteUrl,
+      date_published: null,
+      date_modified: null,
+    };
   }
 
-  // const metadata = {
-  //   title: `${title} | Careers at Enigma Digital`,
-  //   description: seo.description,
-  //   img: "career.png",
-  //   slug: `careers/${job.slug}`,
-  //   date_published: "2023-01-01T00:00",
-  //   date_modified: "2024-12-25T00:00",
-  // }
+  // Ensure correct published & modified dates
+  let datePublished = job.publishedAt ? new Date(job.publishedAt).toISOString() : "2023-01-01T00:00";
+  let dateModified = job._updatedAt ? new Date(job._updatedAt).toISOString() : datePublished;
+
+  // Check if job.mainImage and job.mainImage.asset exist
+  const jobImageUrl = job.mainImage?.asset?.url || "/assets/seo/career.png";
+
+  return {
+    title: `${job.jobTitle} | Careers at Enigma Digital`,
+    description: job.smallDescription || "Join our team and shape the future.",
+    canonical: siteUrl,
+    date_published: datePublished,
+    date_modified: dateModified,
+    openGraph: {
+      title: `${job.jobTitle} | Careers at Enigma Digital`,
+      description: job.smallDescription || "Join our team and shape the future.",
+      url: siteUrl,
+      type: "website",
+      date_published: datePublished,
+      date_modified: dateModified,
+      images: [{ url: jobImageUrl, width: 1200, height: 630, alt: job.jobTitle }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${job.jobTitle} | Careers at Enigma Digital`,
+      description: job.smallDescription || "Join our team and shape the future.",
+      images: [jobImageUrl],
+    },
+    alternates: {
+      canonical: siteUrl,
+      languages: {
+        hrefLang: "en-US",
+        href: siteUrl,
+      },
+    },
+  };
+}
+
+
+
+export default async function CareerDetailPage({ params }) {
+  const job = await careersQuery(params.slug);
+  // console.log(job);
+  if (!job) {
+    notFound();
+    // return (
+    //   <div className="text-center text-red-500 text-lg">Job not found</div>
+    // );
+  }
+
+  const dmetadata = {
+    title: `${job.jobTitle} | Careers at Enigma Digital`,
+    description: job.smallDescription,
+    img: "career.png",
+    slug: `careers/${job.slug}`,
+    date_published: "2023-01-01T00:00",
+    date_modified: "2024-12-25T00:00",
+  }
 
   return (
     <>
-    {/* <WebpageJsonLd metadata={metadata}/> */}
+    <WebpageJsonLd metadata={dmetadata}/>
       <Layout>
         {job.tag[0].name === "Closed" && (
           <div className="fixed top-0 left-0 px-4 text-center right-0 bottom-0 z-20 text-white dark:text-black bg-[#00000050] backdrop-blur-md flex items-center justify-center">
