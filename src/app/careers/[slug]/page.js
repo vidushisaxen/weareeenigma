@@ -73,6 +73,9 @@ export async function generateMetadata({ params }) {
 
 
 
+
+
+
 export default async function CareerDetailPage({ params }) {
   const job = await careersQuery(params.slug);
   // console.log(job);

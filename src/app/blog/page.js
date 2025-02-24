@@ -41,11 +41,15 @@ export async function generateMetadata() {
     canonical: siteUrl,
     // publishedTime: datePublished, // ✅ Added Published Date
     publishedTime: '2023-01-01T00:00:00.000Z',
+    // publishedTime: datePublished, // ✅ Added Published Date
+    publishedTime: '2023-01-01T00:00:00.000Z',
     openGraph: {
       title: "The Enigma Blog | Discover, Learn & Be Future Ready",
       description: "Dive into our curated collection of articles on UI/UX Design, Digital Marketing, Technology & Human Psychology. Stay updated with the latest trends.",
       url: siteUrl,
       type: "website",
+      // date_published: datePublished, // ✅ Added Published Date in OpenGraph
+      publishedTime: '2023-01-01T00:00:00.000Z',
       // date_published: datePublished, // ✅ Added Published Date in OpenGraph
       publishedTime: '2023-01-01T00:00:00.000Z',
       images: blogs.length > 0
@@ -91,7 +95,7 @@ export default async function Blog() {
 
   return (
     <>
-    {/* <WebsiteJsonLd metadata={metadata}/> */}
+
     <WebsiteJsonLd metadata={dmetadata}/>
       <Layout>
         {/* ✅ Featured Blog Section */}
