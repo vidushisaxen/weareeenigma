@@ -1,12 +1,11 @@
 "use client"
-import { fadeUp } from "@/lib/gsapAnimations";
+
 import { SplitInChar } from "@/lib/splitText";
 import gsap from "gsap";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const Hero = () => {
-    fadeUp();
     const container = useRef(null);
     const videoRef = useRef(null);
     const imageRef = useRef(null);

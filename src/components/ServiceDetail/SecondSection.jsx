@@ -1,9 +1,8 @@
 "use client"
-import { fadeUp } from "@/lib/gsapAnimations";
+
 import Link from "next/link"
 
 const SecondSection = ({ text1, text2, btnText }) => {
-    fadeUp();
     return (
         <>
             <section id='section-2'>

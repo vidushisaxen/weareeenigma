@@ -1,7 +1,6 @@
 "use client"
 /* eslint-disable @next/next/no-html-link-for-pages */
 import { Cursor } from "@/components/Cursor";
-// import MetaData from "@/components/MetaData";
 import { fadeUp } from "@/lib/gsapAnimations";
 import React, { useEffect, useState } from "react";
 
@@ -26,16 +25,15 @@ export default function ThankYou() {
 
   fadeUp();
 
-  const metadata = {
-    title: "Thank You! We'll Be in Touch Soon | Enigma",
-    description: "Thanks for getting in touch! We'll contact you shortly to discuss how we can help your business grow and succeed online.",
-    img: "thankyou.png",
-    slug: "thank-you"
-  }
+  // const metadata = {
+  //   title: "Thank You! We'll Be in Touch Soon | Enigma",
+  //   description: "Thanks for getting in touch! We'll contact you shortly to discuss how we can help your business grow and succeed online.",
+  //   img: "thankyou.png",
+  //   slug: "thank-you"
+  // }
 
   return (
     <>
-      {/* <MetaData metadata={metadata} /> */}
       <Cursor />
       <section id="thankyou-page">
         <div className="h-screen w-screen flex justify-center items-center flex-col text-center">

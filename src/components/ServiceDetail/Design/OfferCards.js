@@ -2,11 +2,10 @@
 import Image from "next/image";
 import { useRef } from "react";
 import styles from "../index.module.css";
-import { fadeUp } from "@/lib/gsapAnimations";
 
 const OfferCards = () => {
     const container = useRef(null);
-    fadeUp();
+  
 
     return (
         <>

@@ -6,7 +6,7 @@ import ServiceMarquee from "@/components/Layout/ServiceMarquee";
 import PageLoader from "@/components/PageLoader";
 import { WebpageJsonLd } from "@/lib/json-ld";
 
-
+   
 const siteUrl = "https://weareenigma.com";
 export const metadata = {
     title: "We Elevate Your Digital Presence | Contact Enigma",
@@ -53,7 +53,6 @@ export const metadata = {
 }
 
 export default function ContactPage() {
-
     const dmetadata = {
         title: "We Elevate Your Digital Presence | Contact Enigma",
         description: "Contact Enigma for top-tier UI/UX design, front-end development, and organic digital marketing solutions. Let's collaborate and ascend your digital presence.",

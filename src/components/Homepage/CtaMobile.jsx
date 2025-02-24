@@ -2,11 +2,8 @@
 import Link from "next/link";
 import LazyVideo from "../LazyVideo";
 import styles from "@/styles/cta.module.css";
-import { fadeUp } from "@/lib/gsapAnimations";
 
 const CtaMobile = () => {
-    fadeUp();
-
     return (
         <>
             <div className="w-[90%] mx-auto">

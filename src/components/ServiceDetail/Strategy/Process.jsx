@@ -3,12 +3,10 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useRef, useEffect } from "react";
 import Image from "next/image";
-import { fadeUp } from "@/lib/gsapAnimations";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Process = () => {
-    fadeUp();
     const containerRef = useRef(null);
     const rightSectionRef = useRef(null);
     const leftSectionRef = useRef(null);

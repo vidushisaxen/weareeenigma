@@ -3,10 +3,8 @@
 import styles from "@/styles/404.module.css";
 import { Cursor } from "@/components/Cursor";
 import { WebpageJsonLd } from "@/lib/json-ld";
-import { fadeUp } from "@/lib/gsapAnimations";
 
 export default function NotFound() {
-fadeUp();
     const metadata = {
         title: '404 | Page Not Found',
         description: '404 Page not found please go back to home. This is Enigma Digital.',

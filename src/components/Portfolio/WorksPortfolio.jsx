@@ -4,7 +4,6 @@ import Double from "./Double";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { SplitInLineWordChar } from "@/lib/splitText";
-import { fadeUp } from "@/lib/gsapAnimations";
 import { Media } from "@/lib/media";
 import { projectData } from "./projectData";
 import MobilePortfolio from "./MobilePortfolio";
@@ -12,7 +11,6 @@ import MobilePortfolio from "./MobilePortfolio";
 gsap.registerPlugin(ScrollTrigger);
 
 const WorksPortfolio = () => {
-    fadeUp();
     const container = useRef(null);
     const text = useRef(null);
     const head = useRef(null);

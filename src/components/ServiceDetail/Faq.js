@@ -1,10 +1,10 @@
 "use client"
 import React, { useState } from "react";
 import Image from "next/image";
-import { fadeUp } from "@/lib/gsapAnimations";
+
 
 export default function Faq({ faqData }) {
-    fadeUp();
+    
     const [openIndex, setOpenIndex] = useState(0);
 
     const handleToggle = (index) => {

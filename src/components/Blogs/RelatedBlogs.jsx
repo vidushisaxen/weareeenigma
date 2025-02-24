@@ -1,11 +1,8 @@
-"use client"
+
 import Link from "next/link";
 import BlogCard from "./BlogCard";
-import { fadeUp } from "@/lib/gsapAnimations";
 
-const RelatedBlogs = ({ posts }) => {
-  fadeUp();
-  
+const RelatedBlogs = ({ posts }) => {  
   return (
     <>
     {
