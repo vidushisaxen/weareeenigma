@@ -3,7 +3,7 @@ import CategoryList from "@/components/Blogs/CategoryList";
 import FeaturedBlog from "@/components/Blogs/FeaturedBlog";
 import Layout from "@/components/Layout";
 import PageLoader from "@/components/PageLoader";
-import { WebsiteJsonLd } from "@/lib/json-ld";
+import { WebpageJsonLd } from "@/lib/json-ld";
 import { getCategories } from "@/sanity/lib/categoryQuery";
 import { getBlogPosts } from "@/sanity/lib/queries";
 
@@ -23,35 +23,25 @@ export async function generateMetadata() {
   const blogs = await getBlogPosts();
   
   const siteUrl = "https://weareenigma.com/blog";
-  
-  // Default published date fallback
-  let datePublished = "2023-01-01T00:00";
-  console.log(datePublished)
 
-  // if (blogs.length > 0) {
-  //   // Get the earliest published date from blogs
-  //   const publishedDates = blogs.map((blog) => new Date(blog.publishedAt));
-  //   datePublished = new Date(Math.min(...publishedDates)).toISOString();
-  // }
-  // console.log(blogs)
+
+ 
 
   return {
     title: "The Enigma Blog | Discover, Learn & Be Future Ready",
     description: "Dive into our curated collection of articles on UI/UX Design, Digital Marketing, Technology & Human Psychology. Stay updated with the latest trends.",
     canonical: siteUrl,
-    // publishedTime: datePublished, // ✅ Added Published Date
-    publishedTime: '2023-01-01T00:00:00.000Z',
-    // publishedTime: datePublished, // ✅ Added Published Date
-    publishedTime: '2023-01-01T00:00:00.000Z',
+    date_published: "2023-01-01T00:00",
+    date_modified: "2024-12-25T00:00",
     openGraph: {
       title: "The Enigma Blog | Discover, Learn & Be Future Ready",
       description: "Dive into our curated collection of articles on UI/UX Design, Digital Marketing, Technology & Human Psychology. Stay updated with the latest trends.",
       url: siteUrl,
       type: "website",
-      // date_published: datePublished, // ✅ Added Published Date in OpenGraph
-      publishedTime: '2023-01-01T00:00:00.000Z',
-      // date_published: datePublished, // ✅ Added Published Date in OpenGraph
-      publishedTime: '2023-01-01T00:00:00.000Z',
+      date_published: "2023-01-01T00:00",
+      date_modified: "2024-12-25T00:00",
+     
+     
       images: blogs.length > 0
         ? [{ 
             url: "/assets/seo/blog.png",
@@ -96,7 +86,7 @@ export default async function Blog() {
   return (
     <>
 
-    <WebsiteJsonLd metadata={dmetadata}/>
+    <WebpageJsonLd metadata={dmetadata}/>
       <Layout>
         {/* ✅ Featured Blog Section */}
         <FeaturedBlog featuredBlog={featuredBlog} />

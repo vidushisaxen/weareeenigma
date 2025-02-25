@@ -1,23 +1,32 @@
-"use client"
 import Benefits from "@/components/Careers/Benefits";
 import BrowseJobs from "@/components/Careers/BrowseJobs";
 import FullTimeListing from "@/components/Careers/FullTimeListing";
 import Hero from "@/components/Careers/Hero";
 import InternshipListing from "@/components/Careers/InternshipListing";
 import Layout from "@/components/Layout";
-// import MetaData from "@/components/MetaData";
 import PageLoader from "@/components/PageLoader";
-import { fadeUp, ParaAnim, TitleAnim } from "@/lib/gsapAnimations";
-import { WebpageJsonLd } from "@/lib/json-ld";
 import { getCareers } from '@/sanity/lib/careersquery';
-// import { WebPageJsonLd } from "next-seo";
-import { useEffect, useState } from "react";
+import { WebpageJsonLd } from "@/lib/json-ld";
 
-export default function Careers() {
-    fadeUp();
-    TitleAnim();
-    ParaAnim();
+// ✅ Server Component (No `useEffect`, No `useState`)
+export default async function Careers() {
+    // ✅ Fetch career data on the server
+    const careersData = await getCareers();
 
+    if (!careersData || !careersData.jobOpenings) {
+        return <div className="text-center text-red-500 text-lg">No job listings available</div>;
+    }
+
+    // ✅ Categorize job listings
+    const fullTimeOpenings = careersData.jobOpenings.filter(job =>
+        job.categories.some(cat => cat.title.toLowerCase() === "full-time")
+    );
+
+    const partTimeOpenings = careersData.jobOpenings.filter(job =>
+        job.categories.some(cat => cat.title.toLowerCase() === "part-time")
+    );
+
+    // ✅ Keep `dmetadata` for JSON-LD
     const dmetadata = {
         title: "Careers in Design, Tech & Marketing | Current Openings",
         description: "Explore exciting roles in UI/UX Design, Front-End Development, Digital Marketing, Business Development, and more. Impactful work in a collaborative environment.",
@@ -27,46 +36,9 @@ export default function Careers() {
         date_modified: "2024-12-25T00:00",
     };
 
-    const [fullTimeOpenings, setFullTimeOpenings] = useState([]);
-    const [partTimeOpenings, setPartTimeOpenings] = useState([]);
-
-    useEffect(() => {
-      async function fetchData() {
-          const data = await getCareers();
-  
-          if (data && data.jobOpenings) {
-              for (let index = 0; index < data.jobOpenings.length; index++) {
-                  const job = data.jobOpenings[index];
-                  if (job.categories.length > 0) {
-                      console.log(`${job.categories[0].title}`);
-                  } 
-              }
-              const fullTimeJobs = [];
-              const partTimeJobs = [];
-  
-              for (let index = 0; index < data.jobOpenings.length; index++) {
-                  const job = data.jobOpenings[index];
-                  if (job.categories.length > 0) {
-                      const categoryTitle = job.categories[0].title.toLowerCase();
-                      if (categoryTitle === "full-time") {
-                          fullTimeJobs.push(job);
-                      } else if (categoryTitle === "part-time") {
-                          partTimeJobs.push(job);
-                      }
-                  }
-              }
-              setFullTimeOpenings(fullTimeJobs);
-              setPartTimeOpenings(partTimeJobs);
-          }
-      }
-  
-      fetchData();
-  }, []);
-  
-  
     return (
         <>
-        <WebpageJsonLd metadata={dmetadata}/>
+            <WebpageJsonLd metadata={dmetadata} />
             <Layout>
                 <Hero />
                 <BrowseJobs />
@@ -77,4 +49,37 @@ export default function Careers() {
             <PageLoader loaderText="Careers At Enigma" />
         </>
     );
+}
+
+// ✅ Generate Metadata for SEO
+export async function generateMetadata() {
+    const siteUrl = "https://weareenigma.com/careers";
+
+
+    return {
+        title: "Careers in Design, Tech & Marketing | Current Openings",
+        description: "Explore exciting roles in UI/UX Design, Front-End Development, Digital Marketing, Business Development, and more.",
+        canonical: siteUrl,
+        date_published: "2023-01-01T00:00",
+        date_modified: "2023-01-01T00:00", // ✅ Dynamically updates based on the latest job
+        openGraph: {
+            title: "Careers in Design, Tech & Marketing | Current Openings",
+            description: "Join our growing team in UI/UX, Development, and Marketing.",
+            url: siteUrl,
+            type: "website",
+            date_published: "2023-01-01T00:00",
+            date_modified: "2023-01-01T00:00",
+            images: [{ url: "/assets/seo/career.png", width: 1200, height: 630, alt: "Careers at Enigma" }],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: "Careers in Design, Tech & Marketing | Current Openings",
+            description: "Join our growing team in UI/UX, Development, and Marketing.",
+            images: ["/assets/seo/career.png"],
+        },
+        alternates: {
+            canonical: siteUrl,
+            languages: { hrefLang: "en-US", href: siteUrl },
+        },
+    };
 }

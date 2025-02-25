@@ -17,6 +17,7 @@ export function fadeUp() {
                         trigger: content,
                         start: "top 90%",
                         end: "bottom 60%",
+                       
                     },
                     opacity: 0,
                     delay: 0.3,

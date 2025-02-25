@@ -8,6 +8,7 @@ import RelatedBlogs from "@/components/Blogs/RelatedBlogs";
 import BlogInfo from "@/components/Blogs/BlogInfo";
 import { format, parseISO } from "date-fns";
 import { notFound } from "next/navigation";
+import { WebpageJsonLd } from "@/lib/json-ld";
 
 // ✅ Generate Metadata
 export async function generateMetadata({ params }) {
@@ -60,10 +61,19 @@ export async function generateMetadata({ params }) {
 // ✅ BlogPost Component
 export default async function BlogPost({ params }) {
   const data = await getBlogPostBySlug(params.slug);
-
+  
   if (!data.post) {
     notFound(); // ✅ Redirects to 404 page instead of crashing
   }
+
+  const dmetadata = {
+    title: data.post.title,
+    description: data.post.metaDescription,
+    img: data.post.metaImage.asset.url,
+    slug: data.post.slug.current,
+    date_published: data.post.publishedAt,
+    date_modified: "2024-12-25T00:00",
+}
 
   const { post, relatedPosts } = data;
 
@@ -76,6 +86,7 @@ export default async function BlogPost({ params }) {
 
   return (
     <>
+    <WebpageJsonLd metadata={dmetadata}/>
       <Layout>
         <article className="prose mx-auto p-5 w-screen px-[7.5%]">
           <h1 className="text-[3vw] font-heading font-medium py-[2vw] pt-[10vw] w-[70%] blog-title-anim">

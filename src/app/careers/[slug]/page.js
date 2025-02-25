@@ -78,19 +78,17 @@ export async function generateMetadata({ params }) {
 
 export default async function CareerDetailPage({ params }) {
   const job = await careersQuery(params.slug);
-  // console.log(job);
+
   if (!job) {
     notFound();
-    // return (
-    //   <div className="text-center text-red-500 text-lg">Job not found</div>
-    // );
   }
+
 
   const dmetadata = {
     title: `${job.jobTitle} | Careers at Enigma Digital`,
     description: job.smallDescription,
     img: "career.png",
-    slug: `careers/${job.slug}`,
+    slug: `careers/${params.slug}`,
     date_published: "2023-01-01T00:00",
     date_modified: "2024-12-25T00:00",
   }
