@@ -1,6 +1,6 @@
 const siteName = 'Enigma Digital Agency';
 
-const homepage="";
+const homepage = "https://weareenigma.com"
 
 export function ArticleJsonLd({ post = {} }) {
 
@@ -136,8 +136,8 @@ export function ImageObjectJsonLd() {
   );
 }
 
-export function WebpageJsonLd({ dmetadata = {} }) {
-  const { title, slug, description, date_published, date_modified } = dmetadata;
+export function WebpageJsonLd({ metadata = {} }) {
+  const { title, slug, description, date_published, date_modified } =metadata;
 
   console.log("Date Published:", date_published);
   console.log("Date Modified:", date_modified);
@@ -170,11 +170,11 @@ export function WebpageJsonLd({ dmetadata = {} }) {
 
   return (
     <>
-      {/* <script type="application/ld+json">{JSON.stringify(jsonLd)}</script> */}
-      <script
+      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      {/* <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      /> */}
     </>
   );
 }

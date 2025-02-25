@@ -12,6 +12,7 @@ import Loader2 from "@/components/Loader2";
 import HomePortfolio from "@/components/Portfolio/HomePortfolio";
 import { LocalBusiness, WebpageJsonLd } from "@/lib/json-ld";
 
+const siteUrl = "https://weareenigma.com";
 
 const dmetadata = {
   title: "Enigma | Digital Product Design, UI/UX & Neuromarketing Agency",
@@ -22,7 +23,7 @@ const dmetadata = {
   date_modified: "2024-12-25T00:00",
 }
 
-const siteUrl = "https://weareenigma.com";
+
 export const metadata = {
   title: 'Enigma | Digital Product Design, UI/UX & Neuromarketing Agency',
   description: "Enigma is India's Leading UI/UX Design Agency that Leverages the Power of Emotion, Design, Technology, and Neuromarketing Strategies to Create Digital Products that People Love to Use.",

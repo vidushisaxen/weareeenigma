@@ -59,8 +59,6 @@ export const metadata = {
 }
 
 export default function aboutPage() {
-   
-
     const dmetadata = {
         title: "About Enigma - UI/UX Design & Digital Marketing Agency India",
         description: "Enigma is a team of creators, discoverers, dreamers, & doers, crafting exceptional digital experiences. We are India's leading UI UX design & marketing agency.",
