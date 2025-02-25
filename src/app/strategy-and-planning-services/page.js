@@ -84,7 +84,7 @@ export default function ServiceDetail() {
                 <Process />
                 <BigText text="By taking the <span className='text-primary'>L.E.A.P. </span>with Enigma Digital, you&apos;re not just getting a service; you&apos;re partnering with a team that&apos;s committed to leaping beyond the ordinary and achieving extraordinary results." />
                 <OfferCards />
-                <Blogs />
+                {/* <Blogs /> */}
                 <NextPage title="UI & UX Design" link="ui-ux-design-services" bgImage="/assets/cursor/2.gif" />
             </Layout>
             <PageLoader loaderText="Strategy & Planning Services" />

@@ -58,7 +58,7 @@ export async function generateMetadata() {
 
     return {
         title: "Careers in Design, Tech & Marketing | Current Openings",
-        description: "Explore exciting roles in UI/UX Design, Front-End Development, Digital Marketing, Business Development, and more.",
+        description: "Explore exciting roles in UI/UX Design, Front-End Development, Digital Marketing, Business Development, and more. Impactful work in a collaborative environment.",
         canonical: siteUrl,
         date_published: "2023-01-01T00:00",
         date_modified: "2023-01-01T00:00", // ✅ Dynamically updates based on the latest job

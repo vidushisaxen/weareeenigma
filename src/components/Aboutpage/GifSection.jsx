@@ -5,12 +5,14 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import LazyVideo from "../LazyVideo";
 import Image from "next/image";
 import { SplitInLineOnly } from "@/lib/splitText";
+import { fadeUp } from "@/lib/gsapAnimations";
 
 
 gsap.registerPlugin(ScrollTrigger);
 
 const GifSection = () => {
     const textRef = useRef(null);
+    fadeUp()
 
 
     // Text Fill Animation on Scroll

@@ -1,6 +1,9 @@
+"use client"
+import { ParaAnim } from "@/lib/gsapAnimations";
 import Image from "next/image";
 
 const Benefits = () => {
+    ParaAnim()
    
     return (
         <section id="benefits">

@@ -82,7 +82,7 @@ export default function ServiceDetail() {
                 <Approach content={approachContent} />
                 <Process />
                 <OfferCards />
-                <Blogs />
+                {/* <Blogs /> */}
                 <NextPage title="Marketing" link="/organic-digital-marketing-services" bgImage="/assets/cursor/17.webp" />
             </Layout>
             <PageLoader loaderText="Technology Services" />

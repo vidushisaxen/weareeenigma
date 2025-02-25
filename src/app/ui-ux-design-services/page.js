@@ -86,7 +86,7 @@ export default function ServiceDetail() {
                 <Process />
                 <BigText text="We solve complex design problems through user research, expert analysis, prototyping and collaborative design with users &amp; stakeholders." />
                 <OfferCards />
-                <Blogs />
+                {/* <Blogs /> */}
                 <NextPage title="Technology" link="/technology-services" bgImage="/assets/cursor/5.gif" />
             </Layout>
             <PageLoader loaderText="UI/UX Design Services" />

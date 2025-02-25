@@ -1,3 +1,4 @@
+
 import Layout from "@/components/Layout";
 import NextPage from "@/components/Layout/NextPage";
 import PageLoader from "@/components/PageLoader";
@@ -82,7 +83,7 @@ export default function ServiceDetail() {
                 <Approach content={approachContent} />
                 <Process />
                 <OfferCards />
-                <Blogs />
+                {/* <Blogs /> */}
                 <NextPage title="Strategy" link="/strategy-and-planning-services" bgImage="/assets/cursor/6.gif" />
             </Layout>
             <PageLoader loaderText="Organic Marketing Services" />
